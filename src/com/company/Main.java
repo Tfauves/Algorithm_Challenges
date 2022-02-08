@@ -8,16 +8,29 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
         List<List<Integer>> test = new ArrayList<>();
-        List<Integer> con1 = new ArrayList<>();
-        List<Integer> con2 = new ArrayList<>();
-        con1.add(1);
-        con1.add(2);
-        con2.add(2);
-        con2.add(2);
-        test.add(con1);
-        test.add(con2);
+        List<Integer> cont1 = new ArrayList<>();
+        List<Integer> cont2 = new ArrayList<>();
+        List<Integer> cont3 = new ArrayList<>();
+        cont1.add(1);
+        cont1.add(3);
+        cont1.add(1);
+//       cont1.add(1);
+//       cont1.add(1);
+//       cont2.add(1);
+//       cont2.add(1);
+
+        cont2.add(2);
+        cont2.add(1);
+        cont2.add(2);
+
+        cont3.add(3);
+        cont3.add(3);
+        cont3.add(3);
+
+        test.add(cont1);
+        test.add(cont2);
+        test.add(cont3);
 
         organizingContainers(test);
 
@@ -25,41 +38,128 @@ public class Main {
 
     }
 
+//    public static String organizingContainers(List<List<Integer>> container) {
+//        Map<Integer, Integer> ballMap = new HashMap<>();
+//        Map<Integer, Integer> capacity = new HashMap<>();
+//
+//        for (int i = 0; i < container.size(); i++) {
+//            Integer capSum = 0;
+//            //index of containers
+//            Integer containerIndex = i;
+////            System.out.println(containerIndex);
+//            for (int j = 0; j < container.get(i).size(); j++) {
+////                System.out.println( j + ": " + container.get(i).get(j));
+//                Integer ballType = j;
+////                System.out.println(ballType);
+//                Integer ballAmt = container.get(i).get(j);
+////                System.out.println(ballAmt);
+////                System.out.println(ballType + ": " + ballAmt);
+//                capSum += ballAmt;
+//
+//                capacity.put(containerIndex, capSum);
+//
+//
+//                 if (!ballMap.containsKey(ballType)) {
+//                     ballMap.put(ballType, ballAmt);
+//                 }else {
+//                     ballMap.put(ballType, ballMap.get(ballType) + ballAmt);
+//                 }
+//
+//            }
+//
+//
+//        }
+//
+//
+//
+//
+//
+//            for (Integer ball : ballMap.keySet()) {
+////                    System.out.println(ball + ": " + ballMap.get(ball));
+//                    Integer ballQty = ballMap.get(ball);
+//
+//
+//                    for (Integer con : capacity.keySet()){
+//                        Integer containerCap = capacity.get(con);
+////                        System.out.println(con + ": " + containerCap);
+//                        if (ball == con && ballQty <= containerCap) {
+//
+//
+//                        }
+//
+//                    }
+//
+////                        if (ballMap.isEmpty() && capacity.isEmpty()) {
+////                            return "possible";
+////                        }
+//            }
+//
+//
+////if ball amt > cap = Impossible else Possible?????
+//        return "Possible";
+//
+//    }
+
     public static String organizingContainers(List<List<Integer>> container) {
-        HashMap<Integer, Integer> ballMap = new HashMap<>();
+        Map<Integer, Integer> ballMap = new HashMap<>();
         Map<Integer, Integer> capacity = new HashMap<>();
 
         for (int i = 0; i < container.size(); i++) {
             Integer capSum = 0;
+            //index of containers
             Integer containerIndex = i;
+//            System.out.println(containerIndex);
             for (int j = 0; j < container.get(i).size(); j++) {
+//                System.out.println( j + ": " + container.get(i).get(j));
                 Integer ballType = j;
+//                System.out.println(ballType);
                 Integer ballAmt = container.get(i).get(j);
+//                System.out.println(ballAmt);
+//                System.out.println(ballType + ": " + ballAmt);
                 capSum += ballAmt;
 
                 capacity.put(containerIndex, capSum);
-// TODO: 2/5/2022 something is not right hereish 
+
+
                 if (!ballMap.containsKey(ballType)) {
                     ballMap.put(ballType, ballAmt);
                 }else {
-                    ballMap.put(ballType, ballAmt +1);
+                    ballMap.put(ballType, ballMap.get(ballType) + ballAmt);
                 }
+
             }
 
-
         }
 
-        for (Integer cap : capacity.keySet()) {
-            System.out.println(cap + " " + capacity.get(cap));
-        }
 
         for (Integer ball : ballMap.keySet()) {
             System.out.println(ball + ": " + ballMap.get(ball));
+
+            Integer ballTypo = ball;
+            Integer ballTypoQt = ballMap.get(ball);
+
+            for (Integer con : capacity.keySet()) {
+                System.out.println("ball capacity of container " + con + " is : " + capacity.get(con));
+                Integer containerNum = con;
+                Integer containerCap = capacity.get(con);
+
+                if ( ballTypoQt == containerCap ) {
+                    capacity.remove(containerNum, containerCap);
+                    break;
+                }
+
+
+
+            }
+            if (capacity.isEmpty()) {
+                return "Possible";
+
+            }
         }
 
-        return "";
+
+        return "Impossible";
 
     }
-
 
 }
