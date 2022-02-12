@@ -1,4 +1,4 @@
-package com.company.warmUps;
+package com.company.practice;
 
 public class WU02CountingValleys {
 

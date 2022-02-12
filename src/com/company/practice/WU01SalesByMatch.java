@@ -1,4 +1,4 @@
-package com.company.warmUps;
+package com.company.practice;
 
 import java.util.HashSet;
 import java.util.List;

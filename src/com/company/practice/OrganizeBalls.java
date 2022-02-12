@@ -1,4 +1,4 @@
-package com.company.warmUps;
+package com.company.practice;
 
 import java.util.ArrayList;
 import java.util.HashMap;

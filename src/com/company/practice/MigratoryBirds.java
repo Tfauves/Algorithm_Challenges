@@ -1,4 +1,4 @@
-package com.company.warmUps;
+package com.company.practice;
 
 import java.util.*;
 
@@ -22,10 +22,10 @@ public class MigratoryBirds {
 //            System.out.println(birds);
 //            freqOfBirds.put(arr.get(i), Collections.frequency(arr, arr.get(i)));//put each bird id and the freq sighted into the hashmap
 
-            if (!freqOfBirds.containsKey(arr.get(i))) {
-                freqOfBirds.put(arr.get(i), 1);
+            if (!freqOfBirds.containsKey(arr.get(i))) { //check map for key(i) if not in map
+                freqOfBirds.put(arr.get(i), 1);//add key and frequency
             }else {
-                freqOfBirds.put(arr.get(i), freqOfBirds.get(arr.get(i)) + 1);
+                freqOfBirds.put(arr.get(i), freqOfBirds.get(arr.get(i)) + 1); //update frequency if key already exsist in map
             }
 
 //            System.out.println(freqOfBirds);
@@ -36,13 +36,13 @@ public class MigratoryBirds {
 
 //        System.out.println(mostSighted);
 
-        Map<Integer, Integer> keyOfMostSighted = new HashMap<>();
+        Map<Integer, Integer> keyOfMostSighted = new HashMap<>();// create map to hold the most sighted
         for (Integer freq : freqOfBirds.keySet()) {//iterates through hashmap
-            if (freqOfBirds.get(freq) == mostSighted) {//testing if the value of each key is equal to the max most sighted
-                keyOfMostSighted.put(freq, Collections.frequency(freqOfBirds.keySet(), freqOfBirds.get(freq)));//add keys that are equal to the max to the list
-                Integer minKey = Collections.min(keyOfMostSighted.keySet()); //finds min key in list
+            if (freqOfBirds.get(freq) == mostSighted) {//test if the value of each key is equal to the max most sighted
+                keyOfMostSighted.put(freq, Collections.frequency(freqOfBirds.keySet(), freqOfBirds.get(freq)));//add keys that are equal to the max to the key map
+                Integer minKey = Collections.min(keyOfMostSighted.keySet()); //finds min key in in the mostsighted map
                 System.out.println(minKey);
-                return minKey; //returning the first index of the list ie the lowest key
+                return minKey; //return the lowest key
             }
         }
 
