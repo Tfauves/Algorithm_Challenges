@@ -16,18 +16,19 @@ public class JumpingCloudsRev {
 
     static int jumpingOnClouds(int[] clouds, int jumpDistance) {
         int energy = 100;
-        for (int i = 0; i < clouds.length; i += jumpDistance) {
-           int cloudType = clouds[i];
+        int cloud = 0;
+
+        do {
+            cloud = (cloud + jumpDistance) % clouds.length;
+
+            if (clouds[cloud] != 0) {
+                energy -= 2;
+            }
+            energy -= 1;
 
 
-           if (cloudType != 0) {
-               energy -= 2;
-           }
-           energy -= 1;
-        }
-
+        }while(cloud != 0);
         System.out.println(energy);
-
         return energy;
 
     }
