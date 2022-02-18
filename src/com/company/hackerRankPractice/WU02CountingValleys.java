@@ -1,4 +1,4 @@
-package com.company.practice;
+package com.company.hackerRankPractice;
 
 public class WU02CountingValleys {
 

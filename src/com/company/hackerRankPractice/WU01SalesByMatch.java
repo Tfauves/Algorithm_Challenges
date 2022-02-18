@@ -1,4 +1,4 @@
-package com.company.practice;
+package com.company.hackerRankPractice;
 
 import java.util.HashSet;
 import java.util.List;
