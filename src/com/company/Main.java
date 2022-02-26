@@ -13,8 +13,10 @@ public class Main {
         list.addLast(20);
         list.addLast(30);
         list.removeLast();
+        list.find(20);
 
         System.out.println(list.indexOf(40));
+
 
     }
 

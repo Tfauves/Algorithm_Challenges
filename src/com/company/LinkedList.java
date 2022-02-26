@@ -114,4 +114,23 @@ public class LinkedList {
         return null;
     }
 
+    public Node find(int node) {
+        Node current = first;
+        if (first == null) {
+            return null;
+        }
+
+        while (current != null) {
+            current = current.next;
+
+            if (current.value == node) {
+                return current;
+            }
+
+
+        }
+
+        return current;
+    }
+
 }
