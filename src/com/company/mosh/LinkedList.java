@@ -1,8 +1,19 @@
-package com.company;
+package com.company.mosh;
 
 import java.util.NoSuchElementException;
 
 public class LinkedList {
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.removeLast();
+
+        System.out.println(list.indexOf(40));
+
+    }
 //add node class internally as it is an implementation detail of the linked list no we access to its private fields without a setter
     private class Node {
         private int value;
@@ -114,23 +125,6 @@ public class LinkedList {
         return null;
     }
 
-    public Node find(int node) {
-        Node current = first;
-        if (first == null) {
-            return null;
-        }
 
-        while (current != null) {
-            current = current.next;
-
-            if (current.value == node) {
-                return current;
-            }
-
-
-        }
-
-        return current;
-    }
 
 }
