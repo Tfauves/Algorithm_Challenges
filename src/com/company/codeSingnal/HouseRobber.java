@@ -13,6 +13,7 @@ public class HouseRobber {
     }
 
     static int solution(int[] nums) {
+        //new array??? or copy
         int maxLoot = 0;
         int prev = 0;
         int next = 0;
