@@ -3,10 +3,10 @@ package com.company.codeSingnal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
+//attempt3
 public class HouseRobber {
     public static void main(String[] args) {
-        int[] test = new int[] {2, 1};
+        int[] test = new int[] {1, 1, 1};
 
         solution(test);
 
@@ -30,16 +30,17 @@ public class HouseRobber {
                 prev = current - 1;
             }
 
-            if (nums[next] > nums[current]) {
+            if (nums[next] >= nums[current]) {
 
                 if (maxLoot != 0) {
                     if (nums[next] + nums[prev] > maxLoot) {
                         maxLoot = nums[next] + nums[prev];
-                    } else {
-                        continue;
                     }
                 }
                 maxLoot += nums[next];
+            } else {
+
+                maxLoot = nums[current];
             }
         }
 
@@ -52,7 +53,7 @@ public class HouseRobber {
 }
 
 
-
+///Attempt 1
 
 //else if (nums[next] + nums[prev] > maxLoot) {
 //        maxLoot = nums[next] + nums[prev];
@@ -89,6 +90,44 @@ public class HouseRobber {
 
 
 
-
-
+///Attempt 2
+//    int solution(int[] nums) {
+//        int maxLoot = 0;
+//        int prev = 0;
+//        int next = 0;
+//
+//        if (nums.length == 1) {
+//            return nums[0];
+//        }
+//        for (int current = 0; current < nums.length -1; current++) {
+//
+//
+//            next = current + 1;
+//
+//            if (current > 0) {
+//                prev = current - 1;
+//            }
+//
+//            if (nums[next] > nums[current]) {
+//
+//                if (maxLoot != 0) {
+//                    if (nums[next] + nums[prev] > maxLoot) {
+//                        maxLoot = nums[next] + nums[prev];
+//                    } else {
+//                        continue;
+//                    }
+//                }
+//                maxLoot += nums[next];
+//            } else if (nums[next] + nums[prev] > maxLoot) {
+//                maxLoot = nums[next] + nums[prev];
+//            }
+//        }
+//
+//
+//        System.out.println(maxLoot);
+//        return maxLoot;
+//
+//
+//
+//    }
 

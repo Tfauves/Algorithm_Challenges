@@ -1,4 +1,4 @@
-package com.company.hackerRank;
+package com.company.hackerRank.prep;
 //c[(i + k) %n]
 //if c[i] = 0 then i is cumulus and e = -1
 //if c[i] = 1 then i is thunderhead and e = -1 for the jump + additional -2

@@ -1,4 +1,4 @@
-package com.company.hackerRank.warmUps;
+package com.company.hackerRank.prep;
 
 public class WU02CountingValleys {
 
