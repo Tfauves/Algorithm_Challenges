@@ -36,21 +36,42 @@ public class DiagonalDifference {
 
 
     public static int diagonalDifference(List<List<Integer>> arr) {
-        int number = 0;
-        for (int row = 0; row < arr.size(); row++) {
-//            System.out.println(arr.get(row));
-            for (int col = 0; col < arr.get(row).size(); col++) {
-//                System.out.println(arr.get(row).get(col));
-                number = arr.get(row).get(col);
-                if (row == 0) {
 
-                }
-            }
-            System.out.println(arr.get(row));
-        }
-
-        return 0;
 
     }
+
+
+
+
+
+    //// Nested loop attempt
+//        int absDiff = 0;
+//        int leftToRight = 0;
+//        int rightToLeft = 0;
+//        int length = arr.size() -1;
+//
+//        for (int row = 0; row < arr.size(); row++) {
+////            System.out.println(arr.get(row));
+//        for (int col = 0; col < arr.get(row).size(); col++) {
+////                System.out.println(arr.get(row).get(col));
+//        if (row == col) {
+//        leftToRight += arr.get(row).get(col);
+//
+//        }
+//
+//
+//        System.out.println(arr.get(row).get(length));
+//        System.out.println(arr.get(col).get(length));
+//
+//
+//        }
+////            System.out.println(arr.get(row));
+//        }
+//        absDiff = leftToRight - rightToLeft;
+////        System.out.println(leftToRight);
+////        System.out.println(rightToLeft);
+////        System.out.println(absDiff);
+//
+//        return absDiff;
 
 }
