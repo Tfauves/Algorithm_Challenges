@@ -19,20 +19,30 @@ public class FirstDuplicate {
         Map<Integer, Integer> dups = new HashMap<>();
 
 
-        for (int i = 0; i < a.length; i++) {
-            for (int j = i + 1; j < a.length; j++) {
-                if (a[i] == a[j]) {
-                    dups.put(j, a[i]);
-                }
-            }
-        }
+//        for (int i = 0; i < a.length; i++) {
+//            for (int j = i + 1; j < a.length; j++) {
+//                if (a[i] == a[j]) {
+//                    dups.put(j, a[i]);
+//                }
+//            }
+//        }
 
-        if (dups.isEmpty()){
+//        HashSet<Integer> ch = new HashSet<>();
+//        for(int i=0;i<a.length;i++){
+//            int num = a[i];
+//            if(ch.contains(num)) return num;
+//            ch.add(num);
+//        }
+//        return -1;
+
+        System.out.println(dups);
+
+        if (dups.isEmpty()) {
             return -1;
         }
 
         int minValue = Collections.min(dups.keySet());
-        System.out.println(minValue);
+        System.out.println(dups.get(minValue));
         return dups.get(minValue);
 
     }
