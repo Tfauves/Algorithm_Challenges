@@ -1,6 +1,6 @@
 package com.company.hackerRank.thirtyDaysOfCode;
 
-public class Day11Inheritance {
+public class Day12Inheritance {
     public class StudentClass {
         public static void main(String[] args) {
             int[] testScores = new int[]{100, 100, 100, 100, 100, 100, 100, 100};
