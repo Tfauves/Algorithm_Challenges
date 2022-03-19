@@ -1,11 +1,9 @@
 package com.company.codeSingnal;
 
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
-// TODO: 3/13/2022 attempt passes all but 2 time complexity cases.
 public class FirstDuplicate {
     public static void main(String[] args) {
 //        int[] test = new int[] {1, 1, 2, 2, 1};
@@ -16,37 +14,51 @@ public class FirstDuplicate {
     }
 
     static int solution(int[] a) {
-        Map<Integer, Integer> dups = new HashMap<>();
+        Set<Integer> dups = new HashSet<>();
 
+        for(int i = 0; i < a.length; i++){
+            int num = a[i];
+            if(dups.contains(num)) {
+                return num;
+            }
 
-//        for (int i = 0; i < a.length; i++) {
-//            for (int j = i + 1; j < a.length; j++) {
-//                if (a[i] == a[j]) {
-//                    dups.put(j, a[i]);
-//                }
-//            }
-//        }
-
-//        HashSet<Integer> ch = new HashSet<>();
-//        for(int i=0;i<a.length;i++){
-//            int num = a[i];
-//            if(ch.contains(num)) return num;
-//            ch.add(num);
-//        }
-//        return -1;
-
-        System.out.println(dups);
-
-        if (dups.isEmpty()) {
-            return -1;
+            dups.add(num);
         }
 
-        int minValue = Collections.min(dups.keySet());
-        System.out.println(dups.get(minValue));
-        return dups.get(minValue);
+        return -1;
 
     }
+
 }
+
+
+/// attempt that fails 2 time complexity cases
+//    Map<Integer, Integer> dups = new HashMap<>();
+//
+//        for (int i = 0; i < a.length; i++) {
+//        for (int j = i + 1; j < a.length; j++) {
+//            if (a[i] == a[j]) {
+//                dups.put(j, a[i]);
+//            }
+//        }
+//    }
+//
+//        if (dups.isEmpty()){
+//        return -1;
+//    }
+//
+//    int minValue = Collections.min(dups.keySet());
+//        System.out.println(minValue);
+//        return dups.get(minValue);
+//
+//}
+
+
+
+
+
+
+
 //  attempt solves 10 of 12
 //    int solution(int[] a) {
 //        Map<Integer, Integer> dups = new HashMap<>();
