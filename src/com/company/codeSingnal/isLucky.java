@@ -1,11 +1,15 @@
 package com.company.codeSingnal;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class isLucky {
     public static void main(String[] args) {
         solution(11);
     }
 
     static boolean solution(int n) {
+
         String temp = Integer.toString(n);
         int[] numbArr = new int[temp.length()];
         int sum1 = 0, sum2 = 0;
