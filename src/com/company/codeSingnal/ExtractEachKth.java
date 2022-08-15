@@ -14,11 +14,20 @@ public class ExtractEachKth {
 
     public static int[] solution(int[] inputArray, int k) {
         List<Integer> newList = new ArrayList<>();
+        int index = k -1;
 
-        for (int num : inputArray) {
-            newList.add(num);
+        for (int i = 0; i < inputArray.length; i ++) {
+            if (i != index) {
+                newList.add(inputArray[i]);
+                System.out.println(Arrays.toString(inputArray));
+
+
+            }
+
 
         }
+
+
 
 
         int[] arr = newList.stream().mapToInt(Integer::intValue).toArray();
