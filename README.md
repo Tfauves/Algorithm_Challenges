@@ -1,7 +1,7 @@
 # Algorithm Challenges
-> A collection of completed algorithm problems.
+> A collection of algorithm problems.
 > 
-* HackerRank 30 Days of code
-* CodeSignal Arcade 
+* HackerRank 
+* CodeSignal 
 
 
