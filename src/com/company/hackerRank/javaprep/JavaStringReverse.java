@@ -8,20 +8,22 @@ import java.util.Scanner;
 public class JavaStringReverse {
     public static void main(String[] args) {
         String test = "madaa";
-        List palCheck = new ArrayList();
-        List revList = new ArrayList();
+        boolean flag = true;
 
-        for (Character letter : test.toCharArray()) {
-            palCheck.add(letter);
+        for (int i = 0; i < test.length(); i++) {
+//            System.out.println(test.charAt(i));
 
+
+            if (test.charAt(i) != test.charAt(test.length() -1 -i)) {
+                flag = false;
+            }
         }
 
-        for (int i = palCheck.size() -1; i >= 0; i--) {
-            revList.add(palCheck.get(i));
-        }
-        System.out.println(palCheck);
+        System.out.println(flag ? "Yes" : "No");
 
-        System.out.println(revList);
+
+
+
 
     }
 
