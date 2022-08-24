@@ -1,4 +1,4 @@
-package com.company.hackerRank.prep;
+package com.company.hackerRank.problemsolving;
 
 public class StringIntroduction {
     public static void main(String[] args) {

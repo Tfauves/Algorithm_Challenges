@@ -1,4 +1,4 @@
-package com.company.hackerRank.prep;
+package com.company.hackerRank.problemsolving;
 
 // TODO: 5/25/2022 passing only 4 out of 15 
 public class MinimumSwap2 {

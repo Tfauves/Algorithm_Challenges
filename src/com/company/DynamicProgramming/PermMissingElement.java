@@ -1,6 +1,4 @@
-package com.company.udemyCourse;
-
-import java.util.Arrays;
+package com.company.DynamicProgramming;
 
 public class PermMissingElement {
     public static void main(String[] args) {

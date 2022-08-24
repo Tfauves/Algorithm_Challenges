@@ -1,4 +1,4 @@
-package com.company.hackerRank.prep;
+package com.company.hackerRank.problemsolving;
 
 import java.util.HashSet;
 import java.util.List;

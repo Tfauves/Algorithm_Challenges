@@ -1,7 +1,6 @@
-package com.company.udemyCourse;
+package com.company.DynamicProgramming;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Equilibrium {
