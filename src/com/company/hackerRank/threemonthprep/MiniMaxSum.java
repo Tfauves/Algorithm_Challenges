@@ -2,7 +2,6 @@ package com.company.hackerRank.threemonthprep;
 
 import java.util.List;
 
-// TODO: 8/23/2022 unsolved 
 public class MiniMaxSum {
 
 
