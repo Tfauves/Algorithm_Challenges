@@ -1,5 +1,5 @@
 package com.company.hackerRank.threemonthprep;
-// TODO: 8/27/2022 Not solved 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +30,7 @@ public class SparseArrays {
 
 
     public static List<Integer> matchingStrings(List<String> strings, List<String> queries) {
-        // for each query string determine how many times it occurs in the list of input strings. Return an List of the results
+        // for each query string determine how many times it occurs in the list of input strings. Return a List of the results
         // iterate query and compare each string to the strings in the list of strings
         // if the string in query is a match to a string in query increment the count
         // when iteration is complete add count to List
@@ -50,8 +50,12 @@ public class SparseArrays {
             }
 
         }
+        for(String str : queries) {
+            freqOfStr.add(freqMap.getOrDefault(str, 0));
+        }
 
-        System.out.println(freqMap);
+//        System.out.println(freqMap);
+//        System.out.println(freqOfStr);
         return freqOfStr;
 
     }
