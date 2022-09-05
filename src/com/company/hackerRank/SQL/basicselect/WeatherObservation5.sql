@@ -7,6 +7,7 @@
 --ORDER BY
 --LENGTH(CITY) DESC, CITY DESC LIMIT 1)
 
+
 SELECT top 1 city, len(city)
 FROM station
 ORDER BY len(city) ASC, city ASC;
