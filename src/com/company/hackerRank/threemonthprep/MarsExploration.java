@@ -5,8 +5,10 @@ import java.util.ArrayDeque;
 public class MarsExploration {
 
     public static void main(String[] args) {
-        marsExploration("SOSSPSSQSSOR");
-
+        marsExploration("SOSSOSSOS");
+        // SOSSPSSQSSOR
+        // SOSSOT
+        // SOSSOSSOS
     }
     public static int marsExploration(String s) {
         int mutLetters = 0;
@@ -16,29 +18,31 @@ public class MarsExploration {
 
         }
 
-        while(!message.isEmpty()) {
-            if (message.peek().equals('S')) {
-                message.pop();
-                if(message.peek().equals('O')){
-                    message.pop();
-                } else {
-                    mutLetters++;
+        while (!message.isEmpty()) {
+            char[] signal = {'S', 'O', 'S'};
+
+            for (Character sigLetter : signal) {
+                System.out.println(message.peek());
+                if (message.peek() == 'S') {
                     message.pop();
                 }
-                mutLetters++;
-                message.pop();
+                System.out.println(message.peek());
+                if (message.peek() == 'O') {
+                    message.pop();
+                }
+                System.out.println(message.peek());
+                if (message.peek() == 'S') {
+                    message.pop();
+                } else{
+                    break;
+                }
             }
+            if (message.isEmpty()) break;
+            mutLetters++;
+            message.pop();
+
         }
-
-        // message.peek();
-
-        // System.out.println(message);
-        // System.out.println(message.peek());
-        // System.out.println(message.pop());
-
-
-        // System.out.println(message);
+        System.out.println(mutLetters);
         return mutLetters;
-
     }
 }
