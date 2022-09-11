@@ -1,0 +1,16 @@
+--(SELECT CITY, LENGTH(CITY)
+--FROM STATION
+--ORDER BY LENGTH(CITY) ASC, CITY ASC LIMIT 1)
+--UNION
+--(SELECT CITY, LENGTH(CITY)
+--FROM STATION
+--ORDER BY
+--LENGTH(CITY) DESC, CITY DESC LIMIT 1)
+
+
+SELECT top 1 city, len(city)
+FROM station
+ORDER BY len(city) ASC, city ASC;
+SELECT top 1 city, len(city)
+FROM station
+ORDER BY len(city) DESC, city ASC;
