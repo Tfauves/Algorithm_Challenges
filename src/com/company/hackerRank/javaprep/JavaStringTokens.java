@@ -11,6 +11,11 @@ public class JavaStringTokens {
         String s = scan.nextLine();
 
         String[] strSplit = s.trim().split("['!?,._@ ]+");
+      if (s.equals("")) {
+
+          System.out.println(0);
+          return;
+      }
         System.out.println(strSplit.length);
 
         for(int i = 0; i < strSplit.length; i++) {
