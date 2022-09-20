@@ -23,24 +23,28 @@ public class BeautifulDayAtTheMovies {
         int beautifulDays = 0;
 
         while (dayStart <= dayEnd) {
-            int revDay = Math.abs(dayStart);
-            int reversed = 0;
-//            System.out.println(dayStart);
-            for (; revDay > 0; revDay /= 10) {
-                int modIt = revDay % 10;
-                reversed = reversed * 10 + modIt;
-//                System.out.println(reversed);
-                int determinNumber = (dayStart - Math.abs(reversed)) / divisor;
-                if ( determinNumber % 2 == 0) {
-                    beautifulDays++;
-                }
+            int dayToCheck = Math.abs(dayStart);
+            int reversedDayToCHeck = 0;
+            for (; dayToCheck > 0; dayToCheck /= 10) {
+                int modIt = dayToCheck % 10;
+                reversedDayToCHeck = reversedDayToCHeck * 10 + modIt;
+
+//                System.out.println(dayToCheck);
 
             }
+            double dayDifference = (double)(dayStart - reversedDayToCHeck) / divisor;
+//            System.out.println(dayDifference);
+            if (dayDifference % 1 == 0) {
+                beautifulDays++;
+            }
+
+//            System.out.println(reversedDayToCHeck);
+
 
             dayStart++;
         }
 
-        System.out.println(beautifulDays);
+//        System.out.println(beautifulDays);
         return beautifulDays;
     }
 }
