@@ -1,6 +1,5 @@
 package com.company.hackerRank.threemonthprep;
 
-// TODO: 9/22/2022 not complete 
 public class FlippingBits {
 
     public static void main(String[] args) {
@@ -14,31 +13,29 @@ public class FlippingBits {
         // flip the bits
         // convert back to long
         // return that long
-        Long flippedBitz = 0l;
-        StringBuilder bin = new StringBuilder();
-        bin.append(Long.toBinaryString(n).repeat(32));
+        long flippedBits;
+
+        String binStr = Long.toBinaryString(n);
+        String padding = String.format("%32s", binStr ).replace(' ', '0');
+        System.out.println(padding);
 
 
-        System.out.println(bin);
         StringBuilder newBin = new StringBuilder();
-        for (int i = 0; i < bin.length(); i++) {
-            if (bin.charAt(i) == 0) {
-                newBin.append("1");
 
-            }
-            else {
+        for (Character c : padding.toCharArray()) {
+            if (c == '0') {
+                newBin.append("1");
+            } else {
                 newBin.append("0");
             }
-//            System.out.print(binNum);
-
-
         }
-////        System.out.println();
-            System.out.print(newBin);
-       flippedBitz = Long.parseLong(String.valueOf(newBin), 2);
-       System.out.println( flippedBitz);
 
-        return flippedBitz;
+        System.out.print(newBin);
+        flippedBits = Long.parseLong(String.valueOf(newBin), 2);
+
+        System.out.println("\n" + flippedBits);
+
+        return flippedBits;
 
     }
 }
