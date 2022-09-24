@@ -1,5 +1,7 @@
 package com.company.hackerRank.threemonthprep;
 // TODO: 9/24/2022 not working 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CamelCase4 {
@@ -12,16 +14,20 @@ class names LikeThis.
 methods must end with () unless split then () must be removed.
 S or C split or combine followed by ;
 M C or V method class variable followed by ;
-if S make sure the first letter is lowercase and split at the camel               cased letter.
-if C the words will be lowercase, space seperated and need to be                  combined with the second word capitalized.
+if S make sure the first letter is lowercase and split at the camel cased letter.
+if C the words will be lowercase, space seperated and need to be combined with the second word capitalized.
 Output must be exact (exact spaces and casing).
 */
         Scanner scanner = new Scanner(System.in);
-        StringBuilder newFormatStr = new StringBuilder();
+
+        List<StringBuilder> finalFormatList = new ArrayList<>();
         while (scanner.hasNextLine()) {
             String input = scanner.nextLine();
+            if (input.isEmpty()) {
+                break;
+            }
+            StringBuilder newFormatStr = new StringBuilder();
             String[] cleanInput = input.split(";");
-
             String operator = cleanInput[0];
             String type = cleanInput[1];
             String strInput = cleanInput[2];
@@ -35,6 +41,9 @@ Output must be exact (exact spaces and casing).
                     for (String letter : strInput.split("(?=[A-Z])")) {
                         newFormatStr.append(letter.toLowerCase() + " ");
                     }
+//                    System.out.println(newFormatStr);
+                    finalFormatList.add(newFormatStr);
+                    continue;
 
                 }
 
@@ -48,7 +57,9 @@ Output must be exact (exact spaces and casing).
                 if (type.equals("C")) {
                     for (String letter : strInput.split("(?=[A-Z])")) {
                         newFormatStr.append(letter.toLowerCase() + " ");
+//                        finalFormatList.add(newFormatStr);
                     }
+                    finalFormatList.add(newFormatStr);
 
                 }
 
@@ -90,8 +101,12 @@ Output must be exact (exact spaces and casing).
                             String newVal = String.valueOf(chStrInput);
                             newFormatStr.append(newVal.replaceAll("\\s+", ""));
                             newFormatStr.append("()");
+                            finalFormatList.add(newFormatStr);
+//                            System.out.println(newFormatStr);
                             break;
+
                         }
+
                     }
 
                 }
@@ -106,6 +121,7 @@ Output must be exact (exact spaces and casing).
                             //    System.out.println(chStrInput);
                             String newVal = String.valueOf(chStrInput);
                             newFormatStr.append(newVal.replaceAll("\\s+", ""));
+                            finalFormatList.add(newFormatStr);
                             break;
                         }
                     }
@@ -120,9 +136,14 @@ Output must be exact (exact spaces and casing).
 
 
             // System.out.println(input);
+//            System.out.println(newFormatStr);
 
         }
-        System.out.println(newFormatStr);
+        for (StringBuilder str : finalFormatList) {
+            System.out.println(str);
+        }
+
+
         scanner.close();
 
     }
