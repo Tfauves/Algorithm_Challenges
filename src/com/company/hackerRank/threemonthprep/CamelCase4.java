@@ -50,8 +50,9 @@ Output must be exact (exact spaces and casing).
                 if (type.equals("M")) {
                     for (String letter : strInput.split("(?=[A-Z])")) {
                         newFormatStr.append(letter.toLowerCase().replaceAll("[()]", "") + " ");
-                    }
 
+                    }
+                    finalFormatList.add(newFormatStr);
                 }
 
                 if (type.equals("C")) {
@@ -71,18 +72,29 @@ Output must be exact (exact spaces and casing).
             if (operator.equals("C")) {
                 if (type.equals("V")) {
                     char[] chStrInput = strInput.toCharArray();
+                    String newVal = "";
                     for (int i = 0; i < chStrInput.length; i++) {
                         if (i == 0) {
                             chStrInput[i] = Character.toLowerCase(chStrInput[i]);
                         }
-
+//                        System.out.println(newFormatStr);
                         if (chStrInput[i] == ' ') {
                             chStrInput[i +1] = Character.toUpperCase(chStrInput[i +1]);
                             //    System.out.println(chStrInput);
-                            String newVal = String.valueOf(chStrInput);
+                            newVal = String.valueOf(chStrInput);
+//                            System.out.println(newFormatStr);
+//
+//
+//                            System.out.println(newFormatStr);
+
+                        }
+                        if (i == chStrInput.length -1) {
                             newFormatStr.append(newVal.replaceAll("\\s+", ""));
                         }
+//                        System.out.println(newFormatStr);
                     }
+//                    System.out.println(newFormatStr);
+                    finalFormatList.add(newFormatStr);
 
 
                 }
@@ -115,16 +127,20 @@ Output must be exact (exact spaces and casing).
                     char[] chStrInput = strInput.toCharArray();
                     for (int i = 0; i < chStrInput.length; i++) {
                         chStrInput[0] = Character.toUpperCase(chStrInput[0]);
-                        if (chStrInput[i] == ' ') {
+                        newFormatStr.append(chStrInput[i]);
 
+                        if (chStrInput[i] == ' ') {
+                            newFormatStr.delete(0, newFormatStr.length());
                             chStrInput[i +1] = Character.toUpperCase(chStrInput[i +1]);
                             //    System.out.println(chStrInput);
                             String newVal = String.valueOf(chStrInput);
                             newFormatStr.append(newVal.replaceAll("\\s+", ""));
-                            finalFormatList.add(newFormatStr);
+//                            finalFormatList.add(newFormatStr);
                             break;
                         }
+
                     }
+                    finalFormatList.add(newFormatStr);
 
                 }
 
