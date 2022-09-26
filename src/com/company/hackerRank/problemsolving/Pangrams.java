@@ -1,9 +1,6 @@
 package com.company.hackerRank.problemsolving;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Pangrams {
     public static void main(String[] args) {
@@ -13,17 +10,37 @@ public class Pangrams {
 
     public static String pangrams(String s) {
         boolean isPangram = false;
+        int count = 0;
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         Map<Character, Integer> alphaMap = new HashMap();
 
-        for (char letter : alphabet) {
+        for(char letter : alphabet) {
+            alphaMap.put(letter, 0);
+        }
+
+        for (char sLetter : s.toLowerCase().toCharArray()) {
+            if (sLetter != ' ') {
+                if (!alphaMap.containsKey(sLetter)) {
+                    alphaMap.put(sLetter, 1);
+                } else {
+                    alphaMap.put(sLetter, alphaMap.get(sLetter) + 1);
+                }
+            }
+
 
         }
 
+        for(Integer value : alphaMap.values()) {
+            if (value != 0) {
+               count++;
+            }
+        }
 
+        if(count >= 26) {
+            isPangram = true;
+        }
+        System.out.println(alphaMap);
         System.out.println((isPangram) ? "pangram" : "not pangram");
         return (isPangram) ? "pangram" : "not pangram";
     }
 }
-//    boolean blnResult = Arrays.equals(charArray1,charArray2);
-//    System.out.println("Are two char arrays equal ? : " + blnResult);
