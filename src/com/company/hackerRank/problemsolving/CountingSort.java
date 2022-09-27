@@ -2,6 +2,7 @@ package com.company.hackerRank.problemsolving;
 
 import com.sun.jdi.Value;
 // TODO: 9/27/2022 passing 2 out of 6 testcases 
+// TODO: 9/27/2022 attempted with hashmap same results 
 import java.util.*;
 
 public class CountingSort {
@@ -20,71 +21,77 @@ public class CountingSort {
         countingSort(sample);
 
     }
-    public static List<Integer> countingSort(List<Integer> arr) {
+//    public static List<Integer> countingSort(List<Integer> arr) {
         // Write your code here
         // create a counting list that will hold each index of the input arr
         // iterate input arr if the index holds a value increment the value of the same index in the counting list
         // iterate the count list print the value of each non zero valued index
 
-        List<Integer> freqList = new ArrayList<>(arr.size());
-        for (int i = 0; i < arr.size(); i++) {
-            freqList.add(0);
-
-        }
+//        List<Integer> freqList = new ArrayList<>(arr.size());
+//        for (int i = 0; i < arr.size(); i++) {
+//            freqList.add(0);
+//
+//        }
+////        System.out.println(freqList);
+//        for (int i = 0; i < arr.size(); i++) {
+//            int checkValue = arr.get(i);
+////            System.out.println(checkValue);
+//            for (int j = 0; j < freqList.size(); j++) {
+////                System.out.println(j);
+//                if (checkValue == j) {
+//                    Integer updateElementVal = freqList.get(j);
+//                    updateElementVal++;
+////                    System.out.println(updateElementVal);
+//                    freqList.set(j, updateElementVal);
+////                    System.out.println(freqList);
+//                    break;
+//                }
+//
+//            }
+//        }
+//
 //        System.out.println(freqList);
-        for (int i = 0; i < arr.size(); i++) {
-            int checkValue = arr.get(i);
-//            System.out.println(checkValue);
-            for (int j = 0; j < freqList.size(); j++) {
-//                System.out.println(j);
-                if (checkValue == j) {
-                    Integer updateElementVal = freqList.get(j);
-                    updateElementVal++;
-//                    System.out.println(updateElementVal);
-                    freqList.set(j, updateElementVal);
-//                    System.out.println(freqList);
-                    break;
-                }
-
-            }
-        }
-
-        System.out.println(freqList);
-        return freqList;
-
-
-    }
+//        return freqList;
+//
+//
+//    }
 
 
 
 
 /// Hashmap attempt
-//    public static List<Integer> countingSort(List<Integer> arr) {
-//        // create a freq list of the indices of the input list
-//        // increment the indices in the freq list everytime an element appears in that index in the input array
-//        // return freq list.
-//        Map<Integer, Integer> freqMap = new HashMap<>();
-//        List<Integer> freqList = new ArrayList<>();
-//
-//       for(int i = 0; i < arr.size() -1; i++) {
-//
-//           if (!freqMap.containsKey(i)) {
-//                freqMap.put(i, 0);
-//           }
-//       }
-//        for (Integer index : freqMap.keySet()) {
-//            for (Integer integer : arr) {
-//                if (Objects.equals(integer, index)) {
-//                    freqMap.put(index, freqMap.get(index) + 1);
-//                }
-//            }
-//        }
-//
-////        Collections.sort(freqList);
-////        System.out.println(freqList);
-//        System.out.println(freqMap);
-//        return freqList;
-//    }
+    public static List<Integer> countingSort(List<Integer> arr) {
+        // create a freq list of the indices of the input list
+        // increment the indices in the freq list everytime an element appears in that index in the input array
+        // return freq list.
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        List<Integer> freqList = new ArrayList<>(arr.size());
+
+       for(int i = 0; i < arr.size() ; i++) {
+
+           if (!freqMap.containsKey(i)) {
+                freqMap.put(i, 0);
+           }
+       }
+        for (Integer index : freqMap.keySet()) {
+            for (Integer integer : arr) {
+                if (Objects.equals(integer, index)) {
+                    freqMap.put(index, freqMap.get(index) + 1);
+                }
+            }
+        }
+
+        for(Map.Entry<Integer, Integer> entry: freqMap.entrySet()){
+            Integer key = entry.getKey();
+            Integer value = entry.getValue();
+
+            freqList.add(key, value);
+        }
+//        Collections.sort(freqList);
+        System.out.println(freqList);
+        System.out.println(freqMap);
+        return freqList;
+    }
 
 }
 //    List<Value> list = new ArrayList<Value>(map.values());
