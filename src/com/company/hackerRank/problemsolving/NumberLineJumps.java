@@ -23,20 +23,6 @@ public class NumberLineJumps {
             }
         }
 
-        if (rooLoc2 < rooLoc1) {
-            while (rooLoc2 < rooLoc1) {
-                rooLoc1 += roo1MetersPerJump;
-                rooLoc2 += roo2MetersPerJump;
-                roo1JumpCount++;
-                roo2JumpCount++;
-                if (roo1JumpCount == roo2JumpCount && rooLoc1 == rooLoc2) {
-                    isYes = true;
-                }
-            }
-        }
-
-
-
         System.out.println((isYes) ? "YES" : "NO");
         return (isYes) ? "YES" : "NO";
     }
