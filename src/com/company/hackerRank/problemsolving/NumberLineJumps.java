@@ -1,6 +1,5 @@
 package com.company.hackerRank.problemsolving;
 
-// TODO: 9/29/2022 passing some 
 public class NumberLineJumps {
     public static void main(String[] args) {
 
@@ -9,11 +8,34 @@ public class NumberLineJumps {
 
     public static String kangaroo(int rooLoc1, int roo1MetersPerJump, int rooLoc2, int roo2MetersPerJump) {
         boolean isYes = false;
-        int modRoo = rooLoc1 + roo1MetersPerJump;
-        int checkRoo2 = rooLoc2 + roo2MetersPerJump;
-        if (modRoo % 2 == 1) {
-            isYes = true;
+        int roo1JumpCount = 0;
+        int roo2JumpCount = 0;
+
+        if (rooLoc1 < rooLoc2) {
+            while (rooLoc1 < rooLoc2) {
+                rooLoc1 += roo1MetersPerJump;
+                rooLoc2 += roo2MetersPerJump;
+                roo1JumpCount++;
+                roo2JumpCount++;
+                if (roo1JumpCount == roo2JumpCount && rooLoc1 == rooLoc2) {
+                    isYes = true;
+                }
+            }
         }
+
+        if (rooLoc2 < rooLoc1) {
+            while (rooLoc2 < rooLoc1) {
+                rooLoc1 += roo1MetersPerJump;
+                rooLoc2 += roo2MetersPerJump;
+                roo1JumpCount++;
+                roo2JumpCount++;
+                if (roo1JumpCount == roo2JumpCount && rooLoc1 == rooLoc2) {
+                    isYes = true;
+                }
+            }
+        }
+
+
 
         System.out.println((isYes) ? "YES" : "NO");
         return (isYes) ? "YES" : "NO";
