@@ -1,5 +1,4 @@
 package com.company.hackerRank.threemonthprep;
-// TODO: 9/24/2022 not working 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
