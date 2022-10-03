@@ -13,17 +13,39 @@ public class AngryProfessor {
     public static String angryProfessor(int cancelThresh, List<Integer> arrivalTimes) {
         // if student arrival time <= 0 the student is ontime
         // if the amt of students that are ontime >= cancelThresh
+
+        // start with total student count len of list
+        // decrement student count for those that are late.
+
         boolean haveClass = true;
-        int lateStudentCount = 0;
+        int studentCount = arrivalTimes.size();
 
         for (Integer aTime : arrivalTimes) {
-            if (aTime > 0) lateStudentCount++;
+            if (aTime > 0) studentCount--;
         }
 
-        if (lateStudentCount >= cancelThresh) haveClass = false;
-        System.out.println(lateStudentCount);
-        System.out.println((haveClass) ? "YES" : "NO");
+        if (studentCount >= cancelThresh) haveClass = false;
+        // System.out.println(lateStudentCount);
+        // System.out.println((haveClass) ? "YES" : "NO");
         return (haveClass) ? "YES" : "NO";
     }
+
+
+    // first attempt
+//    public static String angryProfessor(int cancelThresh, List<Integer> arrivalTimes) {
+//        // if student arrival time <= 0 the student is ontime
+//        // if the amt of students that are ontime >= cancelThresh
+//        boolean haveClass = true;
+//        int lateStudentCount = 0;
+//
+//        for (Integer aTime : arrivalTimes) {
+//            if (aTime > 0) lateStudentCount++;
+//        }
+//
+//        if (lateStudentCount >= cancelThresh) haveClass = false;
+//        System.out.println(lateStudentCount);
+//        System.out.println((haveClass) ? "YES" : "NO");
+//        return (haveClass) ? "YES" : "NO";
+//    }
 
 }
