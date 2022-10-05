@@ -1,5 +1,4 @@
 package com.company.hackerRank.problemsolving;
-// TODO: 9/22/2022 still working to solve 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,31 +21,56 @@ public class SubArrayDivision {
     }
 
     public static int birthday(List<Integer> s, int d, int m) {
-        // Write your code here
-        // the length of the segments equal birth month
-        // the sum of the nums on each segment equal birth day
-        // a list to hold the list of numbers of ways the bar can meet the critiera
-        // return the len of list of lists
-        int waysToSplitCount = 0;
-        int next = 0;
+        int waysToDivide = 0;
 
-            if(s.size() == 1 && s.get(0) == d) {
-                waysToSplitCount++;
+        for (int i = 0; i <= s.size() -m; i++) {
+            int sum  = 0;
+
+            for (int j = 0; j < m; j++) {
+                sum += s.get(i + j);
             }
-           for (int current = 0; current < s.size() -1; current++){
-               next = current + 1;
 
-               int sum = s.get(current) + s.get(next);
-               if(sum == d) {
-                   waysToSplitCount++;
-               }
-//               System.out.println(sum);
-           }
+            if (sum == d) {
+                waysToDivide++;
+            }
 
-        System.out.println(waysToSplitCount);
-        return waysToSplitCount;
+        }
 
+
+        return waysToDivide;
     }
+
+
+
+
+
+    /////second attempt
+//    public static int birthday(List<Integer> s, int d, int m) {
+//        // Write your code here
+//        // the length of the segments equal birth month
+//        // the sum of the nums on each segment equal birth day
+//        // a list to hold the list of numbers of ways the bar can meet the critiera
+//        // return the len of list of lists
+//        int waysToSplitCount = 0;
+//        int next = 0;
+//
+//            if(s.size() == 1 && s.get(0) == d) {
+//                waysToSplitCount++;
+//            }
+//           for (int current = 0; current < s.size() -1; current++){
+//               next = current + 1;
+//
+//               int sum = s.get(current) + s.get(next);
+//               if(sum == d) {
+//                   waysToSplitCount++;
+//               }
+////               System.out.println(sum);
+//           }
+//
+//        System.out.println(waysToSplitCount);
+//        return waysToSplitCount;
+//
+//    }
 
 
 
