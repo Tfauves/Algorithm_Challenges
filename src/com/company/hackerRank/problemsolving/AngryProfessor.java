@@ -3,7 +3,6 @@ package com.company.hackerRank.problemsolving;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: 10/2/2022 cannot figure out why ouput doesnt match  
 public class AngryProfessor {
     public static void main(String[] args) {
         List<Integer> test = Arrays.asList(26,94,-95,34,67,-97,17,52,1,86);
@@ -29,7 +28,7 @@ public class AngryProfessor {
         // System.out.println((haveClass) ? "YES" : "NO");
         return (haveClass) ? "YES" : "NO";
     }
-
+}
 
     // first attempt
 //    public static String angryProfessor(int cancelThresh, List<Integer> arrivalTimes) {
@@ -47,5 +46,3 @@ public class AngryProfessor {
 //        System.out.println((haveClass) ? "YES" : "NO");
 //        return (haveClass) ? "YES" : "NO";
 //    }
-
-}
