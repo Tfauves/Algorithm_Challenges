@@ -1,16 +1,17 @@
 package com.company.hackerRank.problemsolving;
 
 import java.util.ArrayDeque;
+import java.util.Stack;
 
-// TODO: 9/22/2022 does not pass all cases 
+// TODO: 10/6/2022 still cant pass all 
 public class FindDigits {
     public static void main(String[] args) {
 
         findDigits(1012);
 
     }
-
-
+// 123456789 114108089 110110015 121 33 44 55 66 77 88 106108048
+//    3 3 6 2 2 2 2 2 2 2 5
     public static int findDigits(int n) {
         // given an interger of each digit that makes up the int
         // determine if it is a divisor
@@ -34,15 +35,19 @@ public class FindDigits {
             compare /= 10;
              digits.add(indiDigits);
         }
+//        System.out.println(digits);
         while (!digits.isEmpty()) {
-            System.out.println(digits.peek());
+
+//            System.out.println(digits.peek());
             int num = digits.pop();
+//            System.out.println(num);
             if (num == 0) {
                 continue;
             }
-            System.out.println(num % n);
-            num /= n;
-            if (num % 2 == 0) {
+//            System.out.println(num % n);
+//            System.out.println(num /= n);
+//            System.out.println(num);
+            if ((num / n) % 2 == 0) {
                 divisors++;
             }
         }
