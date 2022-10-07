@@ -3,7 +3,7 @@ package com.company.hackerRank.problemsolving;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: 5/30/2022 not passing  
+// TODO: 10/7/2022 passes 1 case but fails time complexity  
 public class SaveThePrisoner {
     public static void main(String[] args) {
         solution(5, 2, 2);
@@ -11,17 +11,17 @@ public class SaveThePrisoner {
 
     public static int solution(int numChairs, int candyAmt, int startChair) {
         int badSeat = 0;
-        List<Integer> seats = new ArrayList<>();
-        for (int i = 1; i <= numChairs; i++) {
-            seats.add(i);
+
+        while (candyAmt > 0) {
+            for (int i = startChair; i < numChairs; i++) {
+                if(candyAmt == 0) break;
+                candyAmt--;
+                badSeat = i;
+            }
         }
 
-        while(candyAmt !=0) {
-
-        }
         System.out.println(badSeat);
-        System.out.println(seats);
-        return 1;
+        return badSeat;
 
     }
 
