@@ -3,28 +3,15 @@ package com.company.hackerRank.problemsolving;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: 10/7/2022 passes 1 case but fails time complexity  
 public class SaveThePrisoner {
     public static void main(String[] args) {
-        solution(5, 2, 2);
+        saveThePrisoner(5, 2, 2);
     }
 
-    public static int solution(int numChairs, int candyAmt, int startChair) {
-        int badSeat = 0;
+        public static int saveThePrisoner(int numChairs, int candyAmt, int start) {
+            return (start + candyAmt - 2) % (numChairs) + 1;
 
-        while (candyAmt > 0) {
-            for (int i = startChair; i < numChairs; i++) {
-                if(candyAmt == 0) break;
-                candyAmt--;
-                badSeat = i;
-            }
         }
-
-        System.out.println(badSeat);
-        return badSeat;
-
-    }
-
 }
 
 /////////////second attempt//////////////////////
