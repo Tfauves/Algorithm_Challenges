@@ -1,39 +1,32 @@
 package com.company.hackerRank.problemsolving;
-// TODO: 10/1/2022 passing some but not all cases 
+
 import java.util.*;
 
 public class SuperReducedString {
     public static void main(String[] args) {
 
-        superReduceString("aaabccddd");
+        superReducedString("aaabccddd");
 
     }
 
-    public static String superReduceString(String input) {
-        StringBuilder reducedStr = new StringBuilder();
-        List<Character> letters = new ArrayList<>();
-
-        for (Character letter : input.toCharArray()) {
-            letters.add(letter);
-        }
-
-        for (int i = 0; i < letters.size() -1; i++) {
-            Character current = letters.get(i);
-            Character next = letters.get(i + 1);
-            if (current == next) {
-                letters.remove(current);
-
+    public static String superReducedString(String input) {
+        // Write your code here
+        StringBuilder reducedStr = new StringBuilder(input);
+        for (int i = 0; i < reducedStr.length() - 1; i++) {
+            if (reducedStr.charAt(i) == reducedStr.charAt(i + 1)) {
+                reducedStr.delete(i, i + 2);
+                i = -1;
             }
-            System.out.println("current " + " " + current);
-            System.out.println("next " + " " + next);
         }
+        if (reducedStr.length() == 0) {
 
-        System.out.println(letters);
+            return "Empty String";
+        }
         System.out.println(reducedStr);
-        return reducedStr.toString();
+        return String.valueOf(reducedStr);
     }
-    // tqauhujtmxnsbzpykwlvpfyqijvdhuhirdmuxiobyvxupqwydkpbxmfvxhgicuzdealkgxlfmjiucasokrdznmtlwh
 }
+    // tqauhujtmxnsbzpykwlvpfyqijvdhuhirdmuxiobyvxupqwydkpbxmfvxhgicuzdealkgxlfmjiucasokrdznmtlwh
 
 
 /////// first attempt
