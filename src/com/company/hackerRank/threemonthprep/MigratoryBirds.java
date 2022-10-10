@@ -1,9 +1,5 @@
 package com.company.hackerRank.threemonthprep;
-// TODO: 10/6/2022 needs more work, passing 1 test so far 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MigratoryBirds {
 
@@ -12,22 +8,26 @@ public class MigratoryBirds {
     }
 
     public static int migratoryBirds(List<Integer> arr) {
-        Map<Integer, Integer> birdMap = new HashMap<>();
-        int birds = 0;
-        for (Integer birdsSeen : arr) {
-            if (!birdMap.containsKey(birdsSeen)) {
-                birdMap.put(birdsSeen, 1);
+        Map<Integer, Integer> freqOfBirds = new HashMap<>();
+        for (Integer integer : arr) {
+            if (!freqOfBirds.containsKey(integer)) {
+                freqOfBirds.put(integer, 1);
             } else {
-                birdMap.put(birdsSeen, birdMap.get(birdsSeen) +1);
+                freqOfBirds.put(integer, freqOfBirds.get(integer) + 1);
             }
         }
+        Integer mostSighted = Collections.max(freqOfBirds.values());
 
-        birds = Collections.max(birdMap.values());
-
-        System.out.println(birdMap);
-        System.out.println(birds);
-        return birds;
+        Map<Integer, Integer> keyOfMostSighted = new HashMap<>();
+        for (Integer freq : freqOfBirds.keySet()) {
+            if (Objects.equals(freqOfBirds.get(freq), mostSighted)) {
+                keyOfMostSighted.put(freq, Collections.frequency(freqOfBirds.keySet(), freqOfBirds.get(freq)));
+                Integer minKey = Collections.min(keyOfMostSighted.keySet());
+//                System.out.println(minKey);
+                return minKey;
+            }
+        }
+//        System.out.println(mostSighted);
+        return mostSighted;
     }
-
-
 }
