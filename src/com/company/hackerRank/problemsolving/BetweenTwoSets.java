@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-// TODO: 10/14/2022 having issues working out the nums to be considered 
+// TODO: 10/15/2022  still do not understand the number to be considered
 public class BetweenTwoSets {
     public static void main(String[] args) {
         List<Integer> testA = new ArrayList<>();
@@ -41,15 +41,22 @@ public class BetweenTwoSets {
         int numsBetween = 0;
         
         for (Integer setANums : a) {
-            int factor = 1;
             for (int i = 1; i <= setANums; i ++) {
-                factor *= i;
-                betweeners.add(factor);
+                if (setANums % i == 0)
+                    System.out.println(setANums);
+//                betweeners.add(setANums);
             }
         }
 
+        for (Integer setBNums : b) {
+            for (int i = 1; i <= setBNums; i ++) {
+                if (setBNums % i == 0)
+                    System.out.println(setBNums);
+//                betweeners.add(setANums);
+            }
+        }
 
-        System.out.println(betweeners);
+//        System.out.println(betweeners);
         return numsBetween;
 
 
