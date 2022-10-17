@@ -40,13 +40,13 @@ public class BetweenTwoSets {
         Set<Integer> betweeners = new HashSet<>();
         int numsBetween = 0;
         
-        for (Integer setANums : a) {
-            for (int i = 1; i <= setANums; i ++) {
-                if (setANums % i == 0)
-                    System.out.println(setANums);
-//                betweeners.add(setANums);
-            }
-        }
+//        for (Integer setANums : a) {
+//            for (int i = 1; i <= setANums; i ++) {
+//                if (setANums % i == 0)
+//                    System.out.println(setANums);
+////                betweeners.add(setANums);
+//            }
+//        }
 
         for (Integer setBNums : b) {
             for (int i = 1; i <= setBNums; i ++) {
