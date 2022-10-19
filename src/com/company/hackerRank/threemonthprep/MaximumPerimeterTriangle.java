@@ -6,7 +6,7 @@ import java.util.List;
 
 // TODO: 10/17/2022 cant get this  
 public class MaximumPerimeterTriangle {
-// Non-degenerate triangle − it is a triangle that has a positive area.
+    // Non-degenerate triangle − it is a triangle that has a positive area.
 // The condition for a non-degenerate triangle with sides a, b, c is
 // a + b > c   a + c > b   b + c > a
     public static void main(String[] args) {
@@ -19,32 +19,47 @@ public class MaximumPerimeterTriangle {
     public static List<Integer> maximumPerimeterTriangle(List<Integer> sticks) {
         List<List<Integer>> lengths = new ArrayList<>();
         List<Integer> validTris = new ArrayList<>();
-        for (int i = 0; i < sticks.size() -2; i++) {
-           lengths.add(sticks.subList(i , i + 3));
+        for (int i = 0; i < sticks.size() - 2; i++) {
+            lengths.add(sticks.subList(i, i + 3));
         }
-        System.out.println(lengths);
+//        System.out.println(lengths);
 
-        isVaildTri(lengths.get(1));
+        int sum = 0;
+        for (int i = 0; i < lengths.size() -1 ; i++) {
+            for (int j = 1; j < lengths.size() -1; j++) {
+                sum = lengths.get(i).get(j) + lengths.get(i).get(j +1);
+                System.out.println(lengths.lastIndexOf(lengths.get(i)));
+                if (sum > lengths.get(i).get(j)) {
+                    validTris.addAll(lengths.get(i));
+                }
+//                System.out.println(validTris);
+            }
+
+        }
+        System.out.println(validTris);
         return validTris;
     }
-
-    public static boolean isVaildTri(List<Integer> input) {
-        boolean isValid = false;
-        int sum = 0;
-        for (int i = 0; i < input.size() -1; i++) {
-            sum = input.get(i) + input.get(i + 1);
-            if (sum > input.get(i)){
-                isValid = true;
-            }
-            System.out.println(sum);
-
-        }
-        System.out.println(isValid);
-        return isValid;
-    }
-
-
 }
+//    public static boolean isVaildTri(List<Integer> input) {
+//        boolean isValid = false;
+//        int sum = 0;
+//        for (int i = 0; i < input.size() -1; i++) {
+//            for (int j = 1; j < input.size() -1; j++) {
+//                sum = input.get(i) + input.get(j);
+//                if (sum > input.get(i)){
+//                    isValid = true;
+//                }
+//                System.out.println(sum);
+//            }
+//
+//
+//        }
+//        System.out.println(isValid);
+//        return isValid;
+//    }
+
+
+// }
 
 
 ////////////// first attempt ////////////////////////
