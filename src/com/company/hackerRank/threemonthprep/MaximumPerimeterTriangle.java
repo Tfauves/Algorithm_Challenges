@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: 10/17/2022 cant get this  
+// TODO: 10/19/2022 getting closer
 public class MaximumPerimeterTriangle {
     // Non-degenerate triangle − it is a triangle that has a positive area.
 // The condition for a non-degenerate triangle with sides a, b, c is
@@ -23,19 +23,27 @@ public class MaximumPerimeterTriangle {
             lengths.add(sticks.subList(i, i + 3));
         }
 //        System.out.println(lengths);
+        for (List<Integer> length : lengths) {
+            int maxSum = 0;
+            int a = length.get(0);
+            int b = length.get(1);
+            int c = length.get(2);
+            int sum1 = a + b;
+            int sum2 = a + c;
+            int sum3 = b + c;
 
-        int sum = 0;
-        for (int i = 0; i < lengths.size() -1 ; i++) {
-            for (int j = 1; j < lengths.size() -1; j++) {
-                sum = lengths.get(i).get(j) + lengths.get(i).get(j +1);
-                System.out.println(lengths.lastIndexOf(lengths.get(i)));
-                if (sum > lengths.get(i).get(j)) {
-                    validTris.addAll(lengths.get(i));
-                }
-//                System.out.println(validTris);
+
+            if(sum1 > c && sum2 > b && sum3 > a) {
+
+                validTris.addAll(length);
             }
+//            System.out.println(a);
+//            System.out.println(b);
+//            System.out.println(c);
 
         }
+
+
         System.out.println(validTris);
         return validTris;
     }
