@@ -19,11 +19,11 @@ public class Day08DictionariesMaps {
             while(in.hasNext()){
                 String s = in.next();
                 // Write code here
-                if (phoneBook.containsKey(s)) {
-                    System.out.println(s + "=" + phoneBook.get(s));
-                } else{
+                if (!phoneBook.containsKey(s)) {
                     System.out.println("Not found");
+                    continue;
                 }
+                System.out.println(s + "=" + phoneBook.get(s));
             }
             in.close();
         }

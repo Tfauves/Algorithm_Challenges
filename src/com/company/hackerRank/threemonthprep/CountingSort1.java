@@ -18,10 +18,10 @@ public class CountingSort1 {
         // create a counting list that will hold each index of the input arr
         // iterate input arr if the index holds a value increment the value of the same index in the counting list
         // iterate the count list print the value of each non zero valued index
-        List<Integer> freqList = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            freqList.add(0);
-        }
+        List<Integer> freqList = new ArrayList<>(Collections.nCopies(100, 0));
+//        for (int i = 0; i < 100; i++) {
+//            freqList.add(0);
+//        }
 
         for (Integer i : arr) {
             freqList.set(i, freqList.get(i) + 1);
