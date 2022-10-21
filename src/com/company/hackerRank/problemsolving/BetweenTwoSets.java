@@ -1,10 +1,7 @@
 package com.company.hackerRank.problemsolving;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-// TODO: 10/15/2022  still do not understand the number to be considered
+// TODO: 10/21/2022 still cant get this worked out 
 public class BetweenTwoSets {
     public static void main(String[] args) {
         List<Integer> testA = new ArrayList<>();
@@ -16,51 +13,48 @@ public class BetweenTwoSets {
         testB.add(32);
         testB.add(96);
 
-        getTotalX(testA, testB);
+//        getTotalX(testA, testB);
+//        findFactorials();
     }
 
 
-    public static int getTotalX(List<Integer> a, List<Integer> b) {
-        // find the int that is to be considered
-        // the int to be considered is a factor of all elements of the 2nd array
-        // the nums in the first array are factors of the num to be considered
-        // these nums are "between the two arrays"
-        // count and return the number of nums "between the two arrays"
+//    public static int getTotalX(List<Integer> a, List<Integer> b) {
+//        // find the int that is to be considered
+//        // the int to be considered is a factor of all elements of the 2nd array
+//        // the nums in the first array are factors of the num to be considered
+//        // these nums are "between the two arrays"
+//        // count and return the number of nums "between the two arrays"
+//
+//        /*
+//            delcare a set to hold integers.
+//            iterate list a and find all the factorals of element.
+//            add each factorial to the set/ hashmap maybe?????.
+//            when all elements in a list have been factorialized and added
+//            to the set check list b.
+//            for each element in list b find all the factorials.
+//            add to set.
+//            return the amt of elements in set.
+//        */
+//
+//        Map<Integer, Integer> betweeners = new HashMap<>();
+//
+//
+//
+//
+//    }
 
-        /*
-            delcare a set to hold integers.
-            iterate list a and find all the factorals of element.
-            add each factorial to the set.
-            when all elements in a list have been factorialized and added
-            to the set check list b.
-            for each element in list b find all the factorials.
-            add to set.
-            return the amt of elements in set.
-        */
-        Set<Integer> betweeners = new HashSet<>();
-        int numsBetween = 0;
-        
-//        for (Integer setANums : a) {
-//            for (int i = 1; i <= setANums; i ++) {
-//                if (setANums % i == 0)
-//                    System.out.println(setANums);
-////                betweeners.add(setANums);
-//            }
-//        }
+    public static Integer findFactorials(Integer num) {
+        Integer factor = 1;
 
-        for (Integer setBNums : b) {
-            for (int i = 1; i <= setBNums; i ++) {
-                if (setBNums % i == 0)
-                    System.out.println(setBNums);
-//                betweeners.add(setANums);
-            }
+        for (int i = 1; i < num; i++) {
+            factor = factor * i;
         }
 
-//        System.out.println(betweeners);
-        return numsBetween;
 
-
+        System.out.println(factor);
+        return factor;
     }
+
 
 
 
@@ -86,4 +80,32 @@ public class BetweenTwoSets {
 //
 //        return numsBetween;
 //    }
+
+/////////////////// second attempt ///////////////////////////////////////
+//    Set<Integer> betweeners = new HashSet<>();
+//    int numsBetween = 0;
+//
+//        for (Integer setANums : a) {
+//        for (int i = 1; i <= setANums; i ++) {
+//            if (setANums % i == 0)
+//                System.out.println(setANums);
+////                betweeners.add(setANums);
+//        }
+//    }
+//
+//        for (Integer setBNums : b) {
+//        for (int i = 1; i <= setBNums; i ++) {
+//            if (setBNums % i == 0)
+//                System.out.println(setBNums);
+//            betweeners.add(setBNums);
+//        }
+//    }
+//
+//        System.out.println(betweeners);
+//        return numsBetween;
+//
+
+
+
+
 }
