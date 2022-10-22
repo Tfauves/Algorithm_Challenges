@@ -1,7 +1,7 @@
 package com.company.hackerRank.problemsolving;
 import java.util.*;
 
-// TODO: 10/21/2022 still cant get this worked out 
+// TODO: 10/22/2022 can not seem to get factors right 
 public class BetweenTwoSets {
     public static void main(String[] args) {
         List<Integer> testA = new ArrayList<>();
