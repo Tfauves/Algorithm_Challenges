@@ -14,7 +14,7 @@ public class BetweenTwoSets {
         testB.add(96);
 
 //        getTotalX(testA, testB);
-//        findFactorials();
+        findFactors(96);
     }
 
 
@@ -43,17 +43,36 @@ public class BetweenTwoSets {
 //
 //    }
 
-    public static Integer findFactorials(Integer num) {
-        Integer factor = 1;
+  public static Integer findFactors(Integer input) {
+          int factors = 0;
+          for (int i = 1; i <= input; i++) {
+              if (input % i == 0) {
+                  System.out.println(i);
+              }
+          }
 
-        for (int i = 1; i < num; i++) {
-            factor = factor * i;
-        }
+        return factors;
+  }
 
 
-        System.out.println(factor);
-        return factor;
-    }
+
+
+
+
+
+
+
+//    public static Integer findFactorials(Integer num) {
+//        Integer factor = 1;
+//
+//        for (int i = 1; i < num; i++) {
+//            factor = factor * i;
+//        }
+//
+//
+//        System.out.println(factor);
+//        return factor;
+//    }
 
 
 
