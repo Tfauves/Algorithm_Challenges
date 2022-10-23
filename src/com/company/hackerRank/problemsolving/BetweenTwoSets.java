@@ -13,43 +13,54 @@ public class BetweenTwoSets {
         testB.add(32);
         testB.add(96);
 
-//        getTotalX(testA, testB);
-        findFactors(96);
+        getTotalX(testA, testB);
     }
 
 
-//    public static int getTotalX(List<Integer> a, List<Integer> b) {
-//        // find the int that is to be considered
-//        // the int to be considered is a factor of all elements of the 2nd array
-//        // the nums in the first array are factors of the num to be considered
-//        // these nums are "between the two arrays"
-//        // count and return the number of nums "between the two arrays"
-//
-//        /*
-//            delcare a set to hold integers.
-//            iterate list a and find all the factorals of element.
-//            add each factorial to the set/ hashmap maybe?????.
-//            when all elements in a list have been factorialized and added
-//            to the set check list b.
-//            for each element in list b find all the factorials.
-//            add to set.
-//            return the amt of elements in set.
-//        */
-//
-//        Map<Integer, Integer> betweeners = new HashMap<>();
-//
-//
-//
-//
-//    }
+    public static int getTotalX(List<Integer> a, List<Integer> b) {
+        // find the int that is to be considered
+        // the int to be considered is a factor of all elements of the 2nd array
+        // the nums in the first array are factors of the num to be considered
+        // these nums are "between the two arrays"
+        // count and return the number of nums "between the two arrays"
+
+        /*
+            delcare a set to hold integers.
+            iterate list a and find all the factorals of element.
+            add each factorial to the set/ hashmap maybe?????.
+            when all elements in a list have been factorialized and added
+            to the set check list b.
+            for each element in list b find all the factorials.
+            add to set.
+            return the amt of elements in set.
+        */
+
+        Set<Integer> betweeners = new HashSet<>();
+        int betweenNums = 0;
+
+        for (Integer nums : b) {
+            Integer facts = findFactors(nums);
+
+            if (facts > 1) {
+                betweeners.add(facts);
+            }
+        }
+
+
+        System.out.println(betweeners);
+        return betweenNums;
+    }
 
   public static Integer findFactors(Integer input) {
           int factors = 0;
-          for (int i = 1; i <= input; i++) {
-              if (input % i == 0) {
-                  System.out.println(i);
+          if (input > 1) {
+              for (int i = 1; i <= input; i++) {
+                  if (input % i == 0) {
+                      System.out.println(i);
+                  }
               }
           }
+
 
         return factors;
   }
