@@ -18,77 +18,35 @@ public class BetweenTwoSets {
 
 
     public static int getTotalX(List<Integer> a, List<Integer> b) {
-        // find the int that is to be considered
-        // the int to be considered is a factor of all elements of the 2nd array
-        // the nums in the first array are factors of the num to be considered
-        // these nums are "between the two arrays"
-        // count and return the number of nums "between the two arrays"
-
-        /*
-            delcare a set to hold integers.
-            iterate list a and find all the factorals of element.
-            add each factorial to the set/ hashmap maybe?????.
-            when all elements in a list have been factorialized and added
-            to the set check list b.
-            for each element in list b find all the factorials.
-            add to set.
-            return the amt of elements in set.
-        */
-
-        Set<Integer> betweeners = new HashSet<>();
+        // find the factors of each element in list a
+        // find the factors of each element in list b
+        // every factor num from list b that are the same as factor num in list a betweenNums++;
         int betweenNums = 0;
 
-        for (Integer nums : b) {
-            Integer facts = findFactors(nums);
 
-            if (facts > 1) {
-                betweeners.add(facts);
+        for (Integer number : b) {
+            for (int i = 2; i <= number; i++) {
+//                System.out.println(i);
+                if (number % i ==0) {
+                    System.out.println(i);
+                }
             }
         }
 
 
-        System.out.println(betweeners);
+
+        System.out.println(betweenNums);
+
         return betweenNums;
     }
 
-  public static Integer findFactors(Integer input) {
-          int factors = 0;
-          if (input > 1) {
-              for (int i = 1; i <= input; i++) {
-                  if (input % i == 0) {
-                      System.out.println(i);
-                  }
-              }
-          }
 
-
-        return factors;
-  }
+}
 
 
 
 
-
-
-
-
-
-//    public static Integer findFactorials(Integer num) {
-//        Integer factor = 1;
-//
-//        for (int i = 1; i < num; i++) {
-//            factor = factor * i;
-//        }
-//
-//
-//        System.out.println(factor);
-//        return factor;
-//    }
-
-
-
-
-    ///////////////// first attempt /////////////
+///////////////// first attempt /////////////
 //    public static int getTotalX(List<Integer> a, List<Integer> b) {
 //        // find the int that is to be considered
 //        // the int to be considered is a factor of all elements of the 2nd array
@@ -137,5 +95,3 @@ public class BetweenTwoSets {
 
 
 
-
-}
