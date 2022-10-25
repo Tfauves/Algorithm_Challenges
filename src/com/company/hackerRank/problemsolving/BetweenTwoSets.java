@@ -48,8 +48,8 @@ public class BetweenTwoSets {
         System.out.println(betweenNums);
 
         return betweenNums;
-    }
 
+    }
 
 }
 
@@ -103,5 +103,52 @@ public class BetweenTwoSets {
 //        return numsBetween;
 //
 
-
-
+/////////////////// third attempt///////////////////////////////////////
+//
+//    public static int getTotalX(List<Integer> a, List<Integer> b) {
+//        // find the factors of each element in list a
+//        // find the factors of each element in list b
+//        // every factor num from list b that is the same as factor num in list a betweenNums++;
+//        int betweenNums = 0;
+//        Set<Integer> factorsB = new HashSet<>();
+//        Set<Integer> factorsA = new HashSet<>();
+//
+//
+//        for (Integer number : b) {
+//            for (int i = 2; i <= number; i++) {
+//                if (number % i == 0) {
+//
+//                    factorsB.add(i);
+//                }
+//
+//            }
+//
+//        }
+//        for (Integer nums : a) {
+//            for (int i = 2; i <= nums; i++) {
+//                if (nums % i == 0) {
+//                    factorsA.add(i);
+//                }
+//            }
+//        }
+//
+//        for (Integer factB : factorsB) {
+//            for (Integer factA : factorsA) {
+//                if (factA % factB == 0) {
+//                    betweenNums++;
+//                }
+//            }
+//        }
+//
+//
+//        System.out.println(factorsB);
+//        System.out.println(factorsA);
+//        System.out.println(betweenNums);
+//
+//        return betweenNums;
+//    }
+//
+//
+//}
+//
+//
