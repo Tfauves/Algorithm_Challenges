@@ -22,34 +22,49 @@ public class BetweenTwoSets {
         // find the factors of each element in list b
         // every factor num from list b that are the same as factor num in list a betweenNums++;
         int betweenNums = 0;
-        Set<Integer> factors = new HashSet<>();
-
+        Map<Integer, Integer> factors = new HashMap<>();
+        Map<Integer, Integer> commonFactors = new HashMap<>();
 
         for (Integer number : b) {
             for (int i = 1; i <= number; i++) {
-//                System.out.println(i);
-                if (number % i ==0) {
-                    factors.add(i);
-
+                if (number % i == 0) {
+                    if (!factors.containsKey(i)) {
+                        factors.put(i, 1);
+                    } else {
+                        factors.put(i, factors.get(i) +1);
+                    }
                 }
             }
         }
+        for (Map.Entry<Integer, Integer> factor : factors.entrySet()) {
 
-        for (Integer num : a) {
-            for (int i = 1; i <= num; i++) {
-                if (i % num == 0 && factors.contains(i)) {
-                    betweenNums++;
-
-                }
-            }
+            Integer key = factor.getKey();
+            Integer freq = factor.getValue();
+             if (freq.equals(b.size())) {
+                 commonFactors.put(key, 1);
+             }
 
         }
+
+//        for (Integer nums : a) {
+//            for (int i = 2; i <= nums; i++) {
+//                if (nums % i == 0) {
+//                    commonFactors.put(i, commonFactors.get(i) +1);
+//                }
+//            }
+//
+//        }
+
+
+
         System.out.println(factors);
+        System.out.println(commonFactors);
         System.out.println(betweenNums);
 
         return betweenNums;
 
     }
+
 
 }
 
