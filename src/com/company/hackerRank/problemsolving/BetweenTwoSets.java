@@ -1,7 +1,7 @@
 package com.company.hackerRank.problemsolving;
 import java.util.*;
 
-// TODO: 10/22/2022 can not seem to get factors right 
+// TODO: 10/22/2022 passing 4 tests
 public class BetweenTwoSets {
     public static void main(String[] args) {
         List<Integer> testA = new ArrayList<>();
@@ -22,19 +22,29 @@ public class BetweenTwoSets {
         // find the factors of each element in list b
         // every factor num from list b that are the same as factor num in list a betweenNums++;
         int betweenNums = 0;
+        Set<Integer> factors = new HashSet<>();
 
 
         for (Integer number : b) {
-            for (int i = 2; i <= number; i++) {
+            for (int i = 1; i <= number; i++) {
 //                System.out.println(i);
                 if (number % i ==0) {
-                    System.out.println(i);
+                    factors.add(i);
+
                 }
             }
         }
 
+        for (Integer num : a) {
+            for (int i = 1; i <= num; i++) {
+                if (i % num == 0 && factors.contains(i)) {
+                    betweenNums++;
 
+                }
+            }
 
+        }
+        System.out.println(factors);
         System.out.println(betweenNums);
 
         return betweenNums;
