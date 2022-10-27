@@ -1,17 +1,16 @@
 package com.company.hackerRank.problemsolving;
 import java.util.*;
 
-// TODO: 10/22/2022 passing 4 tests
 public class BetweenTwoSets {
     public static void main(String[] args) {
         List<Integer> testA = new ArrayList<>();
         List<Integer> testB = new ArrayList<>();
-        testA.add(2);
-        testA.add(4);
+        testA.add(1);
+//        testA.add(4);
 
-        testB.add(16);
-        testB.add(32);
-        testB.add(96);
+//        testB.add(16);
+        testB.add(72);
+        testB.add(48);
 
         getTotalX(testA, testB);
     }
@@ -23,11 +22,23 @@ public class BetweenTwoSets {
         // every factor num from list b that are the same as factor num in list a betweenNums++;
         int betweenNums = 0;
         Map<Integer, Integer> factors = new HashMap<>();
-        Map<Integer, Integer> commonFactors = new HashMap<>();
+        for (Integer number : a) {
+            for (int i = 1; i <= Collections.min(b); i++) {
+                if (i % number == 0) {
+                    if(!factors.containsKey(i)) {
+                        factors.put(i, 1);
+                    } else {
+                        factors.put(i, factors.get(i) +1);
+                    }
 
-        for (Integer number : b) {
-            for (int i = 1; i <= number; i++) {
-                if (number % i == 0) {
+                }
+
+            }
+        }
+
+        for (Integer num : b) {
+            for (int i = 1; i <= num; i ++) {
+                if (num % i == 0) {
                     if (!factors.containsKey(i)) {
                         factors.put(i, 1);
                     } else {
@@ -36,31 +47,19 @@ public class BetweenTwoSets {
                 }
             }
         }
-        for (Map.Entry<Integer, Integer> factor : factors.entrySet()) {
 
-            Integer key = factor.getKey();
+        for (Map.Entry<Integer, Integer> factor : factors.entrySet()) {
+            Integer factNum = factor.getKey();
             Integer freq = factor.getValue();
-             if (freq.equals(b.size())) {
-                 commonFactors.put(key, 1);
-             }
+            Integer lens = b.size() + a.size();
+
+            if(Objects.equals(freq, lens)) {
+                betweenNums++;
+            }
 
         }
-
-//        for (Integer nums : a) {
-//            for (int i = 2; i <= nums; i++) {
-//                if (nums % i == 0) {
-//                    commonFactors.put(i, commonFactors.get(i) +1);
-//                }
-//            }
-//
-//        }
-
-
-
-        System.out.println(factors);
-        System.out.println(commonFactors);
-        System.out.println(betweenNums);
-
+//        System.out.println(factors);
+//        System.out.println(betweenNums);
         return betweenNums;
 
     }
