@@ -3,7 +3,6 @@ package com.company.hackerRank.javaprep;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// TODO: 10/24/2022 still not passing all cases 
 public class JavaAnagrams {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -18,7 +17,10 @@ public class JavaAnagrams {
 
     public static boolean isAnagram(String a, String b) {
 
-        if(a.length() != b.length()) return false;
+        if(a.length() != b.length()) {
+            System.out.println("Not Anagrams");
+            return false;
+        }
 
         a = a.toLowerCase();
         b = b.toLowerCase();
