@@ -1,13 +1,14 @@
 package com.company.hackerRank.problemsolving;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
-// TODO: 10/6/2022 still cant pass all 
+// TODO: 11/4/2022 not passing first test 
 public class FindDigits {
     public static void main(String[] args) {
 
-        findDigits(1012);
+        findDigits(114108089);
 
     }
 // 123456789 114108089 110110015 121 33 44 55 66 77 88 106108048
@@ -27,7 +28,7 @@ public class FindDigits {
         int compare = n;
         int indiDigits = 0;
 
-        ArrayDeque<Integer> digits = new ArrayDeque<>();
+        Deque<Integer> digits = new ArrayDeque<>();
 
         while (compare > 0) {
 //            System.out.println(indiDigits % 10);
@@ -47,7 +48,7 @@ public class FindDigits {
 //            System.out.println(num % n);
 //            System.out.println(num /= n);
 //            System.out.println(num);
-            if ((num / n) % 2 == 0) {
+            if ((n / num) % 2 == 0) {
                 divisors++;
             }
         }
