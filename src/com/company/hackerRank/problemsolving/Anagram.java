@@ -6,7 +6,7 @@ public class Anagram {
 
     public static void main(String[] args) {
 
-        anagram("xaxbbbxx");
+        anagram("abc");
 //        aaabbb ab abc mnop xyyx xaxbbbxx
 //        hhpddlnnsjfoyxpciioigvjqzfbpllssuj
     }
@@ -17,38 +17,46 @@ public class Anagram {
         int middle = s.length() / 2;
         String sub1 = s.substring(0, middle);
         String sub2 = s.substring(middle);
-        System.out.println(sub1);
-        System.out.println(sub2);
-        boolean isFound = false;
+//        System.out.println(sub1);
+//        System.out.println(sub2);
 
-
-        if(sub1.length() == sub2.length()) {
-            char [] subArr1 = sub1.toCharArray();
-            char [] subArr2 = sub2.toCharArray();
-            Arrays.sort(subArr1);
-            Arrays.sort(subArr2);
-//            System.out.println(subArr1);
-//            System.out.println(subArr2);
-
-            for (int i = 0; i < subArr1.length; i++) {
-                for (int j = 0; j < subArr2.length; j++) {
-
-                    if (subArr1[i] == subArr2[j]) {
-                        if (i > 1 && subArr1[i] == subArr1[i -1]) {
-                            foundCount--;
-                            break;
-                        }
-                        foundCount++;
-                        break;
-                    }
+        if (sub1.length() == sub2.length()) {
+            for (Character letter : sub1.toCharArray()) {
+                if (sub2.indexOf(letter) == -1) {
+                    minNumberChange++;
                 }
             }
-
-            minNumberChange = Math.abs(foundCount - sub2.length());
         } else {
             minNumberChange = -1;
         }
 
+
+
+//        if(sub1.length() == sub2.length()) {
+//            char [] subArr1 = sub1.toCharArray();
+//            char [] subArr2 = sub2.toCharArray();
+//            Arrays.sort(subArr1);
+//            Arrays.sort(subArr2);
+//            System.out.println(subArr1);
+//            System.out.println(subArr2);
+//
+//            for (int i = 0; i < subArr1.length; i++) {
+//                for (int j = 0; j < subArr2.length; j++) {
+//
+//                    if (subArr1[i] == subArr2[j]) {
+//                        if (i > 1 && subArr1[i] == subArr1[i -1]) {
+//                            foundCount--;
+//                            break;
+//                        }
+//                        foundCount++;
+//                        break;
+//                    }
+//                }
+//            }
+//
+//
+//        }
+//        minNumberChange = Math.abs(foundCount - sub2.length() +1);
 
         System.out.println(minNumberChange);
         return minNumberChange;
