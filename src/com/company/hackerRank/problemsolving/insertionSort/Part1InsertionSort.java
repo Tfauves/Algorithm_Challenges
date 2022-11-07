@@ -31,9 +31,6 @@ public class Part1InsertionSort {
             int next = arr.get(i - 1);
             System.out.println("insert " + insertValue + " current " + current + " next " + next);
 
-
-
-
         }
 
     }
