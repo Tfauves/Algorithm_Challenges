@@ -1,15 +1,12 @@
 package com.company.hackerRank.problemsolving;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Anagram {
 
     public static void main(String[] args) {
 
-        anagram("xaxbbbxx");
+        anagram("hhpddlnnsjfoyxpciioigvjqzfbpllssuj");
 //        aaabbb ab abc mnop xyyx xaxbbbxx
 //        3 1-1 2 0 1
 
@@ -23,6 +20,7 @@ public class Anagram {
     public static int anagram(String s) {
         int minNumberChange = 0;
         if (s.length() % 2 == 1) {
+            System.out.println(-1);
             return -1;
         }
         int middle = s.length() / 2;
@@ -30,38 +28,32 @@ public class Anagram {
         String sub2 = s.substring(middle);
         System.out.println(sub1);
         System.out.println(sub2);
-        Map<Character, Integer> charFreq = new HashMap<>();
+        final int ALPHA = 26;
+        int[] freq = new int[ALPHA];
+        int[] freq2 = new int[ALPHA];
 
-        for(Character letter : sub1.toCharArray()) {
-            if (!charFreq.containsKey(letter)) {
-                charFreq.put(letter, 1);
-            } else {
-                charFreq.put(letter, charFreq.get(letter) +1);
-            }
+        for (int i = 0; i < sub1.length(); i++) {
+            freq[sub1.charAt(i) - 'a'] ++;
         }
 
-            for (int i = 0; i < sub2.length(); i++) {
-                if (charFreq.containsKey(sub2.charAt(i))) {
-                    charFreq.put(sub2.charAt(i), charFreq.get(sub2.charAt(i)) -1);
+        for (int i = 0; i < sub2.length(); i++) {
+            freq2[sub2.charAt(i) - 'a'] ++;
+        }
+        System.out.println(Arrays.toString(freq));
+        System.out.println(Arrays.toString(freq2));
 
-                }
-
+        for (int i = 0; i < freq.length; i++) {
+            if (freq2[i] == 0 && freq[i] >= 1) {
+                minNumberChange += Math.abs(freq[i] - freq2[i]);
             }
-
-
-        System.out.println(charFreq);
-
-//        for (Character letter : sub1.toCharArray()) {
-//            chList1.add(letter);
-//        }
-//        System.out.println(chList1);
-//
-//        for (int i = 0; i <= chList1.size() -1; i++) {
-//            if (!chList1.contains(sub2.charAt(i))) {
+//            if (freq[i] >= 1 && freq2[i] == 0) {
 //                minNumberChange++;
 //            }
-//
-//        }
+//            if (freq2[i] > freq[i]) {
+//                minNumberChange = freq2[i] - freq[i];
+//            }
+        }
+
         System.out.println(minNumberChange);
 //        System.out.println(chList1.size());
 
