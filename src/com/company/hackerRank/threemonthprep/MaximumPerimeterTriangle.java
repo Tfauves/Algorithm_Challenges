@@ -2,9 +2,10 @@ package com.company.hackerRank.threemonthprep;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-// TODO: 10/19/2022 only passing 5 test cases
+// TODO: 11/8/2022 sorted passing all but one case now 
 public class MaximumPerimeterTriangle {
     // Non-degenerate triangle − it is a triangle that has a positive area.
     // The condition for a non-degenerate triangle with sides a, b, c is
@@ -21,6 +22,7 @@ public class MaximumPerimeterTriangle {
         List<Integer> validTris = new ArrayList<>();
         int maxSum = 0;
         int totalSum = 0;
+        Collections.sort(sticks);
         for (int i = 0; i < sticks.size() - 2; i++) {
             lengths.add(sticks.subList(i, i + 3));
         }
