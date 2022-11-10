@@ -7,6 +7,10 @@ public class Anagram {
     public static void main(String[] args) {
 
         anagram("hhpddlnnsjfoyxpciioigvjqzfbpllssuj");
+        //hhpddlnnsjfoyxpciioigvjqzfbpllssuj
+        //xtnipeqhxvafqaggqoanvwkmthtfirwhmjrbphlmeluvoa
+        //gqdvlchavotcykafyjzbbgmnlajiqlnwctrnvznspiwquxxsiwuldizqkkaawpyyisnftdzklwagv -1
+
 //        aaabbb ab abc mnop xyyx xaxbbbxx
 //        3 1-1 2 0 1
 
@@ -39,25 +43,13 @@ public class Anagram {
         for (int i = 0; i < sub2.length(); i++) {
             freq2[sub2.charAt(i) - 'a'] ++;
         }
-        System.out.println(Arrays.toString(freq));
-        System.out.println(Arrays.toString(freq2));
 
         for (int i = 0; i < freq.length; i++) {
-            if (freq2[i] == 0 && freq[i] >= 1) {
+            if (freq[i] > freq2[i]) {
                 minNumberChange += Math.abs(freq[i] - freq2[i]);
             }
-//            if (freq[i] >= 1 && freq2[i] == 0) {
-//                minNumberChange++;
-//            }
-//            if (freq2[i] > freq[i]) {
-//                minNumberChange = freq2[i] - freq[i];
-//            }
         }
-
         System.out.println(minNumberChange);
-//        System.out.println(chList1.size());
-
-
         return minNumberChange;
     }
 
