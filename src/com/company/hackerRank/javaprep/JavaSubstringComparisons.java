@@ -1,6 +1,7 @@
 package com.company.hackerRank.javaprep;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class JavaSubstringComparisons {
@@ -13,16 +14,21 @@ public class JavaSubstringComparisons {
     public static String getSmallestAndLargest(String s, int k) {
         String smallest = "";
         String largest = "";
-        List<String> subArry = new ArrayList<>();
+        List<String> subs = new ArrayList<>();
 
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = 0; j < s.length(); j++) {
-                subArry.add(s.substring(0, k));
-            }
+        int index = 0;
+        while (k < s.length() + 1) {
+            subs.add(s.substring(index, k));
+            index += 1;
+            k += 1;
         }
 
-        System.out.println(subArry);
+        Collections.sort(subs);
+        smallest = subs.get(0);
+        largest = subs.get(subs.size() -1);
 
+//        System.out.println(subs);
+//        System.out.println(smallest + "\n" + largest);
         return smallest + "\n" + largest;
     }
 }
