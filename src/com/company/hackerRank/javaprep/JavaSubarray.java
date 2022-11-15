@@ -3,7 +3,6 @@ package com.company.hackerRank.javaprep;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// TODO: 11/15/2022 not passing 
 public class JavaSubarray {
     public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
@@ -29,23 +28,19 @@ public class JavaSubarray {
         // print neg counter total
         int negCount = 0;
        for (int i = 0; i < inputArray.length; i++) {
+           int sum = inputArray[i];
            if (inputArray[i] < 0) {
                negCount++;
            }
-           for (int j = i ; j < inputArray.length; j++) {
-               int sum = inputArray[i] + inputArray[j];
+
+           for (int j = i + 1 ; j < inputArray.length; j++) {
+               sum += inputArray[j];
                if (sum < 0) {
-                   System.out.println(sum);
                    negCount++;
                }
 
            }
        }
-
-
         System.out.println(negCount);
-
-
-
     }
 }
