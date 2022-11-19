@@ -27,7 +27,6 @@ public class PickingNumbers {
             for (int j = i + 1; j < a.size(); j++) {
                 int absDif = Math.abs(a.get(i) - a.get(j));
 
-
                 if (absDif <= 1) {
                     newSub.add(a.get(j));
                 }
