@@ -1,19 +1,25 @@
 package com.company.hackerRank.problemsolving.insertionSort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-// TODO: 11/20/2022 works right but dosent pass becaue of print format probs 
 public class Part1InsertionSort {
     public static void main(String[] args) {
         List<Integer> test = new ArrayList<>();
 //        5
 //        2 4 6 8 3
-        test.add(1);
+        //2 3 4 5 6 7 8 9 10 1
         test.add(2);
+        test.add(3);
         test.add(4);
         test.add(5);
-        test.add(3);
+        test.add(6);
+        test.add(7);
+        test.add(8);
+        test.add(9);
+        test.add(10);
+        test.add(1);
 
         insertionSort1(5, test);
     }
@@ -29,8 +35,13 @@ public class Part1InsertionSort {
         for (int i = arr.size() -1; i >= 0; i--) {
             int next = i -1;
 
+            if (i == 0) {
+                next = i;
+                arr.set(i, temp);
+            };
+
             if (arr.get(next) > arr.get(i)) {
-              arr.set(i, arr.get(next));
+                arr.set(i, arr.get(next));
 
             }
             if (arr.get(i) > arr.get(next) && arr.get(next) > temp) {
@@ -39,11 +50,16 @@ public class Part1InsertionSort {
 
             if (arr.get(next) < temp ) {
                 arr.set(i, temp);
-                System.out.println(arr);
+                String list = Arrays.toString(arr.toArray()).replace("[", "").replace("]", "").replace(",", "");
+                System.out.println(list);
+                // System.out.println(arr);
                 break;
             }
 
-            System.out.println(arr);
+            String list = Arrays.toString(arr.toArray()).replace("[", "").replace("]", "").replace(",", "");
+            System.out.println(list);
+
+            // System.out.println(arr);
         }
 
 
