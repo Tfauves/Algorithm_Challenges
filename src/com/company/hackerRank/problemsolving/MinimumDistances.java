@@ -1,5 +1,4 @@
 package com.company.hackerRank.problemsolving;
-// TODO: 10/6/2022 not passing all cases 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,17 +9,16 @@ public class MinimumDistances {
         List<Integer> input = Arrays.asList(7, 1, 3, 4, 1, 7);
         minimumDistances(input);
     }
-
     public static int minimumDistances(List<Integer> a) {
-        int minDist = -1;
         List<Integer> distances = new ArrayList<>();
+        int minDist = -1;
 
         for (int i = 0; i < a.size() -1; i++) {
             for (int j = i +1; j < a.size(); j++) {
                 int diff = 0;
                 if (a.get(i).equals(a.get(j))) {
                     diff = j - i;
-                   distances.add(diff);
+                    distances.add(diff);
                 }
 
             }
@@ -36,7 +34,11 @@ public class MinimumDistances {
         return distances.get(0);
 
     }
+
 }
+
+
+
 
 ///first attempt////////
 //  int distance = 10000;
