@@ -24,7 +24,6 @@ public class SortThePeople {
             Integer height = item.getKey();
             String name = item.getValue();
 
-
         }
 
         System.out.println(sorted);
