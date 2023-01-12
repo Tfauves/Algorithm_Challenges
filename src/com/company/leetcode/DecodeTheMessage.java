@@ -16,14 +16,21 @@ public class DecodeTheMessage {
     public static String decodeMessage(String key, String message) {
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         char[] splitKey = key.replaceAll(" ", "").toCharArray();
+        int index = 0;
         Map<Character, Character> keyMap = new HashMap<>();
         StringBuilder returnStr = new StringBuilder();
 
-        for (int i = 0; i < alphabet.length; i++) {
-            if (!keyMap.containsKey(splitKey[i])) {
-                keyMap.put(splitKey[i], alphabet[i]);
-            }
+        Set<Character> keySet = new LinkedHashSet<Character>();
+        for (char c: splitKey) {
+            keySet.add(c);
         }
+        System.out.println(keySet);
+
+        for (Character keys : keySet) {
+            keyMap.put(keys, alphabet[index]);
+            index++;
+        }
+        System.out.println(keyMap);
 
         for (int i = 0; i < message.length(); i++) {
             if (message.charAt(i) == ' ') returnStr.append(" ");
@@ -32,7 +39,6 @@ public class DecodeTheMessage {
             }
         }
 
-        System.out.println(keyMap);
         System.out.println(returnStr.toString());
         return returnStr.toString();
     }
