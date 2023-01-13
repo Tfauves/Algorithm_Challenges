@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ReverseString {
     public static void main(String[] args) {
-        char[] test = {'h','e','l','l','o'};
+        char[] test = {'G', 'o', 'o', 'd', 'b', 'y', 'e'};
         reverseString(test);
 
     }
