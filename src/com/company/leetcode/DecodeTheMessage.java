@@ -24,13 +24,13 @@ public class DecodeTheMessage {
         for (char c: splitKey) {
             keySet.add(c);
         }
-        System.out.println(keySet);
+//        System.out.println(keySet);
 
         for (Character keys : keySet) {
             keyMap.put(keys, alphabet[index]);
             index++;
         }
-        System.out.println(keyMap);
+//        System.out.println(keyMap);
 
         for (int i = 0; i < message.length(); i++) {
             if (message.charAt(i) == ' ') returnStr.append(" ");
@@ -39,7 +39,7 @@ public class DecodeTheMessage {
             }
         }
 
-        System.out.println(returnStr.toString());
+//        System.out.println(returnStr.toString());
         return returnStr.toString();
     }
 }
