@@ -1,8 +1,5 @@
 package com.company.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RemoveElement {
     public static void main(String[] args) {
         int[] test = {0,1,2,2,3,0,4,2};
@@ -11,37 +8,17 @@ public class RemoveElement {
     }
 
     public static int removeElement(int[] nums, int val) {
-        List<Integer> numList = new ArrayList<>();
-        for (int i : nums) {
-            numList.add(i);
+        int i = 0;
+        int len = nums.length;
+        while (i < len) {
+            if (nums[i] == val) {
+                nums[i] = nums[len - 1];
+                // reduce array size by one
+                len--;
+            } else {
+                i++;
+            }
         }
-
-        numList.removeIf(num -> num == val);
-
-        System.out.println(numList);
-        return numList.get(0);
+        return len;
     }
-
-//    public static int removeElement(int[] nums, int val) {
-//        int count = 0;
-//        for (int i = 0; i < nums.length; i++) {
-//            if (nums[i] == val) {
-//                count++;
-//            }
-//        }
-//        System.out.println(nums.length - count);
-//        return nums.length - count;
-//
-//    }
 }
-//    public int removeElement(int[] nums, int val) {
-//        int count = 0;
-//        for (int i = 0; i < nums.length; i++) {
-//            if (nums[i] == val) {
-//                count++;
-//            }
-//        }
-//        nums[0] = nums.length - count;
-//        return nums[0];
-//
-//    }
