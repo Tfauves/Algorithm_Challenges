@@ -1,11 +1,5 @@
 package com.company.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-// TODO: 1/16/2023 needs work 
 public class SortingTheSentence {
     public static void main(String[] args) {
         String test = "is2 sentence4 This1 a3";
@@ -14,11 +8,28 @@ public class SortingTheSentence {
     }
 
     public static String sortSentence(String s) {
-//        String noNums = s.replaceAll("[0-9]","");
-        List<String> newStr = new ArrayList<String>(List.of(s.split(" ")));
+        String[] splitInput = s.split(" ");
+        int len = splitInput.length;
+        String[] output = new String[len];
+        StringBuilder strOutput = new StringBuilder();
 
-        Collections.sort(newStr);
-        System.out.println(newStr);
-        return " ";
+        for (int i = 0; i < len; i++) {
+            int wordLen = splitInput[i].length();
+//            System.out.println(wordLen);
+            char lastChar = splitInput[i].charAt(wordLen -1);
+//            System.out.println(lastChar);
+            int numValOfLastChar = Integer.parseInt(String.valueOf(lastChar));
+//            System.out.println(numValOfLastCHar);
+            output[numValOfLastChar - 1] = splitInput[i].substring(0, wordLen -1);
+
+        }
+
+        for (String word : output) {
+            strOutput.append(word).append(" ");
+        }
+
+
+//        System.out.println(strOutput);
+        return strOutput.toString().trim();
     }
 }
