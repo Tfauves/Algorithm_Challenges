@@ -1,9 +1,8 @@
 package com.company.leetcode;
 
-// TODO: 1/20/2023 passing 106 out of 113 trouble edge case with array size of 0 
 public class StudentAttendanceRecordI {
     public static void main(String[] args) {
-        String test = "AA";
+        String test = "LLPPPLL";
 //        "PPALLP"
         checkRecord(test);
     }
@@ -22,6 +21,7 @@ public class StudentAttendanceRecordI {
             if (inputChars[i] != 'P') {
                 if (inputChars[i] == 'A') {
                     totalACount++;
+                    if (inputChars[i] == 'A' && inputChars[next] == 'A') totalACount++;
 
                     if (totalACount >= 2) {
                         System.out.println(false);
@@ -31,6 +31,9 @@ public class StudentAttendanceRecordI {
                 if (inputChars[i] == 'L') {
                     if (inputChars[next] == 'L') {
                         totalLCount++;
+                    }
+                    if (inputChars[next] != 'L') {
+                        totalLCount = 1;
                     }
 
                     if (totalLCount >= 3) {
@@ -43,5 +46,4 @@ public class StudentAttendanceRecordI {
         System.out.println(true);
         return true;
     }
-
 }
