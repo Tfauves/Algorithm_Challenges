@@ -1,8 +1,5 @@
 package com.company.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LengthOfLastWord {
     public static void main(String[] args) {
 

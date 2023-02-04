@@ -1,10 +1,5 @@
 package com.company.leetcode;
 
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class SearchInsertPosition {
     public static void main(String[] args) {
         int[] test = {1,3,5,6};
