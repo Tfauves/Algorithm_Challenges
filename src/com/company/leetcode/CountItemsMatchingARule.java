@@ -33,20 +33,15 @@ public class CountItemsMatchingARule {
 
     public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
         int numOfMatches = 0;
-
-
         for (int i = 0; i < items.size(); i++) {
-
-                switch (ruleKey) {
-                    case "type": if (items.get(i).get(0).equals(ruleValue)) numOfMatches++;
-                        break;
-                    case "color": if (items.get(i).get(1).equals(ruleValue)) numOfMatches++;
-                        break;
-                    case "name": if (items.get(i).get(2).equals(ruleValue)) numOfMatches++;
-                        break;
-
-                }
-
+            switch (ruleKey) {
+                case "type": if (items.get(i).get(0).equals(ruleValue)) numOfMatches++;
+                break;
+                case "color": if (items.get(i).get(1).equals(ruleValue)) numOfMatches++;
+                break;
+                case "name": if (items.get(i).get(2).equals(ruleValue)) numOfMatches++;
+                break;
+            }
         }
         System.out.println(numOfMatches);
         return numOfMatches;
