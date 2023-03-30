@@ -11,45 +11,25 @@ import java.util.List;
 public class PlusOne {
     public static void main(String[] args) {
 
-        int [] test = {9,8,7,6,5,4,3,2,1,0};
+        int [] test = {1,2,3};
 //9,8,7,6,5,4,3,2,1,0
         plusOne(test);
     }
 
     public static int[] plusOne(int[] digits) {
-        List<Long> output = new ArrayList<>();
-        LinkedList<Long> stack = new LinkedList<Long>();
-        long intDigits = 0;
+        int n = digits.length;
+        for(int i = n -1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
 
-
-        for (int i = 0; i < digits.length; i++) {
-            intDigits = intDigits * 10 + digits[i];
+            digits[i] = 0;
         }
 
+        int[] newNumber = new int [n +1];
+        newNumber[0] = 1;
 
-        System.out.println(intDigits);
-        intDigits += 1;
-        System.out.println(intDigits);
-        while (intDigits > 0) {
-            System.out.println(stack);
-            stack.push(intDigits % 10);
-            intDigits /= 10;
-
-        }
-
-
-        while (!stack.isEmpty()) {
-            long ele = 0;
-          ele = Math.toIntExact(stack.pop());
-            output.add(ele);
-        }
-
-
-        System.out.println(Arrays.toString(output.stream()
-                .mapToInt(Long::intValue)
-                .toArray()));
-        return output.stream()
-                .mapToInt(Long::intValue)
-                .toArray();
+        return newNumber;
     }
 }
