@@ -2,7 +2,6 @@ package com.company.leetcode;
 
 import java.util.Stack;
 
-// TODO: 1/8/2023 passing 85 of 92 
 public class ValidParentheses {
 
     public static void main(String[] args) {
@@ -48,10 +47,9 @@ public class ValidParentheses {
                         return false;
                     }
                     break;
+                default: return false;
             }
         }
-
-
         // After the loop we have to check one more condition.
         // return true only if the stack is empty.
         // if stack is not empty that means we have unused brackets.
