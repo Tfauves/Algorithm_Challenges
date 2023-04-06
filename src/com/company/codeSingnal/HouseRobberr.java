@@ -5,7 +5,7 @@ import java.util.List;
 //new Attempt
 public class HouseRobberr {
     public static void main(String[] args) {
-        int[] test = new int[] {0};
+        int[] test = new int[] {2, 1, 3};
 
         solution(test);
 
