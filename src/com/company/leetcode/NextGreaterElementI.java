@@ -15,23 +15,31 @@ public class NextGreaterElementI {
         int[] ans = new int[nums1.length];
 
         for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
-                if (nums2[j] == nums1[i]) {
-                    for (int k = 0; k < nums2.length; k++) {
-                        if (nums2[k] > nums1[i]) {
-                            ans[i] = nums2[k];
-                            break;
-                        } else {
-                            ans[i] = -1;
-                            break;
-                        }
-                    }
+            ans[i] = checkForTarget(nums1[i], nums2);
+        }
 
+
+        System.out.println(Arrays.toString(ans));
+        return ans;
+    }
+
+    public static int checkForTarget(int target, int[] nums) {
+        int output = 0;
+        for (int i = 0; i < nums.length; i++) {
+
+            if (nums[i] == target) {
+                for (int j = i; j < nums.length; j++) {
+                    if (nums[j] > target) {
+                        output = nums[j];
+                        break;
+                    } else {
+                        output = -1;
+                    }
                 }
             }
         }
 
-        System.out.println(Arrays.toString(ans));
-        return ans;
+        return output;
+
     }
 }
