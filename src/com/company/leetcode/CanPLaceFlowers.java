@@ -1,27 +1,34 @@
 package com.company.leetcode;
 
-// TODO: 4/22/2023 attempted 
 public class CanPLaceFlowers {
     public static void main(String[] args) {
-        int[] input = {1,0,0,0,0,1};
+        int[] input = {1,0,0,0,0,0,1};
 
         canPlaceFlowers(input, 2);
-
     }
 
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
-        int truthCounter = 0;
 
-        for (int i = 0; i < flowerbed.length -1; i++) {
-            int mid = i + 1;
-            int next = mid + 1;
+        for(int i = 0; i < flowerbed.length; i++){
+            int curr = flowerbed[i];
+            int next = -1;
+            int prev = -1;
 
-            if (flowerbed[i] == 0 && flowerbed[mid] == 0 && flowerbed[next] ==0) {
-                truthCounter++;
+            if(i < flowerbed.length - 1){
+                next = flowerbed[i + 1];
+            }
+            if(i > 0){
+                prev = flowerbed[i - 1];
+            }
+            if(curr == 0){
+                //we can try to plant it
+                if(prev != 1 && next != 1){
+                    //we can plant it here
+                    flowerbed[i] = 1;
+                    n--;
+                }
             }
         }
-
-        System.out.println(truthCounter);
-        return truthCounter >= n;
+        return n <= 0;
     }
 }
