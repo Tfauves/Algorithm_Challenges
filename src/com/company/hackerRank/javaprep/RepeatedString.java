@@ -1,4 +1,4 @@
-package com.company.hackerRank;
+package com.company.hackerRank.javaprep;
 
 public class RepeatedString {
     public static void main(String[] args) {
