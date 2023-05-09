@@ -1,7 +1,5 @@
 package com.company.leetcode;
 
-import java.util.Arrays;
-
 public class ClimbingStairs {
     public static void main(String[] args) {
 
