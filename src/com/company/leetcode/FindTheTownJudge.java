@@ -1,6 +1,6 @@
 package com.company.leetcode;
 
-// TODO: 1/24/2023 not complete 54/92
+
 public class FindTheTownJudge {
     public static void main(String[] args) {
         int[][] input = {{1, 3}, {2, 3}, {3, 1}};
@@ -19,25 +19,22 @@ public class FindTheTownJudge {
 //
 //    Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
     public static int findJudge(int n, int[][] trust) {
-        boolean isJudge = false;
+
+        int[] trusts = new int[n+1];
+        int[] trustedBy = new int[n+1];
+
         for (int i = 0; i < trust.length; i++) {
-            for (int j = 0; j < trust[i].length; j++) {
-                if (trust[i][0] == n) {
-                    System.out.println(-1);
-                    return -1;
-                }
-                if (trust[i][1] == n) {
-                    isJudge = true;
-                }
+
+            trusts[trust[i][0]] ++;
+            trustedBy[trust[i][1]] ++;
+        }
+
+        for(int i = 1; i <= n; i++) {
+            if(trusts[i] == 0 && trustedBy[i] == n-1) {
+                System.out.println(i);
+                return i;
             }
         }
-
-        if (isJudge) {
-            System.out.println(n);
-            return n;
-        }
-
-
         System.out.println(-1);
         return -1;
     }
