@@ -16,31 +16,50 @@ public class FindCommonCharacters {
     public static List<String> commonChars(String[] words) {
         List<String> commonChars = new ArrayList<>();
         Map<Character, Integer> charMap = new HashMap<>();
-        int len = words.length;
-
-        for (String word : words) {
-            for (Character letter : word.toCharArray()) {
-                if (!charMap.containsKey(letter)) {
-                    charMap.put(letter, 1);
-                } else {
-                    charMap.put(letter, charMap.get(letter) + 1);
-                }
-            }
+        // Init a char freq map for first word
+        for (Character letter : words[0].toCharArray()) {
+            charMap.put(letter, charMap.getOrDefault(letter, 0) +1);
         }
 
-        for (Map.Entry<Character, Integer> item : charMap.entrySet()) {
-            Character key = item.getKey();
-            Integer value = item.getValue();
+        // Iterate through the remaining words
+        for (int i = 1; i < words.length; i++) {
+            String word = words[i];
+            Map<Character, Integer> currentWordCharMap = new HashMap<>();
 
-            if (value >= len) {
+            // Count the char freq for the current word
+            for (Character letter : word.toCharArray()) {
+                currentWordCharMap.put(letter, currentWordCharMap.getOrDefault(letter, 0) +1);
+            }
+
+            List<Character> keysToRemove = new ArrayList<>();
+
+            // Update the char freq map with the min freqs
+            for (Character key : charMap.keySet()) {
+                if (!currentWordCharMap.containsKey(key)) {
+                    keysToRemove.add(key);
+                } else {
+                    int minFreq = Math.min(charMap.get(key), currentWordCharMap.get(key));
+                    charMap.put(key, minFreq);
+                }
+            }
+
+            // Remove keys that are not present in currentWordCharMap
+            for (Character key : keysToRemove) {
+                charMap.remove(key);
+            }
+
+        }
+
+        // Build the list of common char based on the char freq map
+        for (Character key : charMap.keySet()) {
+            int frequency = charMap.get(key);
+            for (int i = 0; i < frequency; i++) {
                 commonChars.add(String.valueOf(key));
             }
         }
 
+
         System.out.println(commonChars);
-
-        System.out.println(charMap);
-
         return commonChars;
     }
 }
