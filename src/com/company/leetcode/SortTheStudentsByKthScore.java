@@ -2,6 +2,7 @@ package com.company.leetcode;
 
 import java.util.Arrays;
 
+// TODO: 6/10/2023 getting the first arr with max k but dont know how to repeat this over until finding all the arrs
 public class SortTheStudentsByKthScore {
 
     public static void main(String[] args) {
