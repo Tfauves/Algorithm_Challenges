@@ -1,7 +1,10 @@
 package com.company.leetcode;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
+// TODO: 6/10/2023 not passing 
 public class SetMisMatch {
     public static void main(String[] args) {
         int[] input = {1, 2, 2, 4};
@@ -25,16 +28,20 @@ public class SetMisMatch {
 
         int[] answer = new int[2];
         int answerIndex = 0;
-        for (int i = 0; i < nums.length -1; i++) {
-            if (nums[i] == nums[i +1]) {
-                answer[answerIndex] = nums[i +1];
-                int missingValue = nums[i + 1 +1] - 1;
-                answer[answerIndex + 1] = missingValue;
-                answerIndex++;
-            }
+        Set<Integer> mySet = new HashSet<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+           if (mySet.contains(nums[i])) {
+               answer[0] = nums[i];
+               answer[1] = nums[i] + 1;
+
+           } else {
+               mySet.add(nums[i]);
+           }
 
         }
-
+        System.out.println(mySet);
         System.out.println(Arrays.toString(answer));
         return answer;
     }
