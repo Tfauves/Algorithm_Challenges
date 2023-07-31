@@ -1,43 +1,38 @@
 package com.company.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-// TODO: 7/17/2023 not passing all cases 
+import java.util.*;
 
 public class IntersectionOfTwoArrays2 {
     public static void main(String[] args) {
 
-        int[] input1 = {1, 2, 2, 1};
-        int[] input2 = {2};
+        int[] input1 = {4,9,5};
+        int[] input2 = {9,4,9,8,4};
 
         intersect(input1, input2);
 
     }
 
     public static int[] intersect(int[] nums1, int[] nums2) {
+        Set<Integer> intersectionNums = new HashSet<>();
+        List<Integer> resultList = new ArrayList<>();
 
-        List<Integer> intersections = new ArrayList<>();
+        for (int item : nums1) {
+            intersectionNums.add(item);
+        }
 
-        for (int i = 0; i < nums1.length; i++) {
-
-            for (int j = 0; j < nums2.length; j++) {
-               
-                if (nums1[i] == nums2[j]) {
-                    intersections.add(nums1[i]);
-                    break;
-                }
+        for (int item : nums2) {
+            if (intersectionNums.contains(item)) {
+                resultList.add(item);
+                intersectionNums.remove(item);
             }
         }
 
-        System.out.println(intersections);
+        int[] ans = new int[resultList.size()];
 
-        int[] ans = new int[intersections.size()];
-
-        for (int i = 0; i < intersections.size(); i++) {
-            ans[i] = intersections.get(i);
+        for (int i = 0; i < resultList.size(); i++) {
+            ans[i] = resultList.get(i);
         }
+
         System.out.println(Arrays.toString(ans));
         return ans;
     }
