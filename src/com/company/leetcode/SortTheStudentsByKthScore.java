@@ -1,8 +1,6 @@
 package com.company.leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 // TODO: 9/17/2023 new approach but still not working 
 public class SortTheStudentsByKthScore {
@@ -16,7 +14,8 @@ public class SortTheStudentsByKthScore {
 
     public static int[][] sortTheStudents(int[][] score, int k) {
         int[][] answer = new int[score.length][score.length];
-        int index = 0;
+        int index1 = 0;
+        int index2 = 0;
         Map<Integer, Integer> scoreMap = new HashMap<>();
 
         int studentHighScore = 0;
@@ -34,14 +33,12 @@ public class SortTheStudentsByKthScore {
         }
 
         for (int i = 0; i < score[highScoreIndex].length; i++) {
-            answer[index][i] = score[highScoreIndex][i];
+            answer[index1][index2] = score[highScoreIndex][i];
+            index2++;
+
         }
-
-        System.out.println(highScoreIndex);
-        System.out.println(studentHighScore);
-
-//        System.out.println(scoreMap);
-
+        scoreMap.remove(highScoreIndex);
+        index1++;
 
        System.out.println(Arrays.deepToString(answer));
         return answer;
