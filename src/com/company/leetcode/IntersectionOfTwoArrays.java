@@ -12,25 +12,29 @@ public class IntersectionOfTwoArrays {
     }
 
     public static int[] intersection(int[] nums1, int[] nums2) {
+        int[] ans = {};
         Set<Integer> intersectionNums = new HashSet<>();
-        List<Integer> resultList = new ArrayList<>();
+        Map<Integer, Integer> freqMap1 = new HashMap<>();
+        Map<Integer, Integer> freqMap2 = new HashMap<>();
 
-        for (int item : nums1) {
-            intersectionNums.add(item);
-        }
-
-        for (int item : nums2) {
-            if (intersectionNums.contains(item)) {
-                resultList.add(item);
-                intersectionNums.remove(item);
+        for (Integer item : nums1) {
+            if (!freqMap1.containsKey(item)) {
+                freqMap1.put(item, 1);
+            } else {
+                freqMap1.put(item, freqMap1.get(item) + 1);
             }
         }
 
-        int[] ans = new int[resultList.size()];
-
-        for (int i = 0; i < resultList.size(); i++) {
-            ans[i] = resultList.get(i);
+        for (Integer item : nums2) {
+            if (!freqMap2.containsKey(item)) {
+                freqMap2.put(item, 1);
+            } else {
+                freqMap2.put(item, freqMap2.get(item) + 1);
+            }
         }
+
+        System.out.println(freqMap1);
+        System.out.println(freqMap2);
 
         System.out.println(Arrays.toString(ans));
         return ans;
